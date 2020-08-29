@@ -58,7 +58,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                 <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-black-mesa"></i></span>
                                 <div class="mini-stat-info">
                                     <span class="counter text-blue-grey">65.241</span>
-                                    Schedules made
+                                    Destaques
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -68,7 +68,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                 <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-buffer"></i></span>
                                 <div class="mini-stat-info">
                                     <span class="counter text-blue-grey">14.412</span>
-                                    Delivery Collaborators
+                                    Banners
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -78,7 +78,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                 <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-coffee"></i></span>
                                 <div class="mini-stat-info">
                                     <span class="counter text-blue-grey">20.544</span>
-                                    Operational Collaborators
+                                    Usuários cadastrados
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -90,7 +90,7 @@ if ($_SESSION['usuarioNome'] == '') {
                         <div class="col-xl-6">
                             <div class="card m-b-20">
                                 <div class="card-body">
-                                    <h4 class="mt-0 m-b-30 header-title">Latest registered properties</h4>
+                                    <h4 class="mt-0 m-b-30 header-title">Últimos anunciantes</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-vertical mb-0">
@@ -193,7 +193,7 @@ if ($_SESSION['usuarioNome'] == '') {
                         <div class="col-xl-6">
                             <div class="card m-b-20">
                                 <div class="card-body">
-                                    <h4 class="mt-0 m-b-30 header-title">Latest appointments</h4>
+                                    <h4 class="mt-0 m-b-30 header-title">Destaques no momento</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-vertical mb-0">

@@ -13,8 +13,6 @@ if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
     $_SESSION['usuarioNome'] = $resultado['nome'];
     $_SESSION['usuarioEmail'] = $resultado['email'];
     echo "<meta http-equiv='refresh' content=0;url='../index.php'>";
-
-
 } else {
     $_SESSION['loginErro'] = "Usuário ou senha inválido";
     echo "<meta http-equiv='refresh' content=0;url='../index-acesso-negado.php'>";

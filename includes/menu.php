@@ -6,40 +6,42 @@
         </div>
     </div>
     <div class="sidebar-inner slimscrollleft">
-        <div style="background-color: #3BB1CD" id="sidebar-menu">
+        <div style="background-color: #147981" id="sidebar-menu">
             <ul>
                 <li style="padding-top: 30px;">
                     <a href="index.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Home </span>
                     </a>
                 </li>
 
-
-                <li style="color: #fff; font-size: 16px" class="menu-title">Registrations</li>
+                <li style="color: #fff; font-size: 16px" class="menu-title">Módulos</li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span>Schendule</span></a>
+                    <a href="#" class="waves-effect"><i class="mdi mdi-airplane"></i><span>Anunciantes</span></a>
                 </li>
                 <li>
-                    <a href="imoveis.php" class="waves-effect"><i class="mdi mdi-google-maps"></i><span>Properties</span></a>
+                    <a href="#" class="waves-effect"><i class="mdi mdi-buffer"></i><span>Páginas</span></a>
                 </li>
                 <li>
-                    <a href="itens.php" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span>Items</span></a>
-                </li>
-
-                <li style="color: #fff; font-size: 16px" class="menu-title">Queries / Reports</li>
-                <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Report by date</span></a>
+                    <a href="#" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Banners</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Report by employee</span></a>
+                    <a href="#" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Destaques</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Report by property</span></a>
+                    <a href="#" class="waves-effect"><i class="mdi mdi-email-outline"></i><span>Contatos</span></a>
                 </li>
 
-                <li style="color: #fff; font-size: 16px" class="menu-title">Access</li>
+                <li style="color: #fff; font-size: 16px" class="menu-title">Configurações </li>
                 <li>
                     <a href="usuarios.php" class="waves-effect"><i
-                                class="mdi mdi-account-location"></i><span>Users </span></a>
+                                class="mdi mdi-account-location"></i><span>Usuários </span></a>
+                </li>
+                <li>
+                    <a href="seo.php" class="waves-effect"><i
+                                class="mdi mdi-flask-outline"></i><span>Seo </span></a>
+                </li>
+                <li>
+                    <a href="informacoes.php" class="waves-effect"><i
+                                class="mdi mdi-help-circle"></i><span>Informações </span></a>
                 </li>
 
                 <li>
