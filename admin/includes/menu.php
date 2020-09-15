@@ -21,6 +21,12 @@
                     <a href="#" class="waves-effect"><i class="mdi mdi-buffer"></i><span>Páginas</span></a>
                 </li>
                 <li>
+                    <a href="blog.php" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span>Blog</span></a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Categorias</span></a>
+                </li>
+                <li>
                     <a href="#" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Banners</span></a>
                 </li>
                 <li>
