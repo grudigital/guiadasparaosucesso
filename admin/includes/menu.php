@@ -15,25 +15,25 @@
 
                 <li style="color: #fff; font-size: 16px" class="menu-title">Módulos</li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-airplane"></i><span>Anunciantes</span></a>
+                    <a href="anunciantes.php" class="waves-effect"><i class="mdi mdi-airplane"></i><span>Anunciantes</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-buffer"></i><span>Páginas</span></a>
+                    <a href="blocos.php" class="waves-effect"><i class="mdi mdi-buffer"></i><span>Blocos</span></a>
                 </li>
                 <li>
                     <a href="blog.php" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span>Blog</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Categorias</span></a>
+                    <a href="categorias.php" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Categorias</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Banners</span></a>
+                    <a href="banners.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Banners</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Destaques</span></a>
+                    <a href="destaques.php" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Destaques</span></a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="mdi mdi-email-outline"></i><span>Contatos</span></a>
+                    <a href="contatos.php" class="waves-effect"><i class="mdi mdi-email-outline"></i><span>Contatos</span></a>
                 </li>
 
                 <li style="color: #fff; font-size: 16px" class="menu-title">Configurações </li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Ago-2020 às 23:58
+-- Tempo de geração: 23-Set-2020 às 23:08
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -57,6 +57,14 @@ CREATE TABLE `anunciantes_categoria` (
   `id` int(11) UNSIGNED NOT NULL,
   `categoria` varchar(120) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `anunciantes_categoria`
+--
+
+INSERT INTO `anunciantes_categoria` (`id`, `categoria`) VALUES
+(4, 'categoria 2'),
+(5, 'sapatos');
 
 -- --------------------------------------------------------
 
@@ -143,19 +151,127 @@ CREATE TABLE `banners` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `blocos`
+--
+
+CREATE TABLE `blocos` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `titulo` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pagina` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumo` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `texto` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `imagem` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `blocos_paginas`
+--
+
+CREATE TABLE `blocos_paginas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pagina` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `blocos_paginas`
+--
+
+INSERT INTO `blocos_paginas` (`id`, `pagina`) VALUES
+(1, 'Quem somos'),
+(2, 'Faça parte'),
+(3, 'Termos de uso'),
+(4, 'Políticas de privacidade');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `blog_categorias`
+--
+
+CREATE TABLE `blog_categorias` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `categoria` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `blog_categorias`
+--
+
+INSERT INTO `blog_categorias` (`id`, `categoria`) VALUES
+(1, 'Categoria 1'),
+(2, 'Categoria 2');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `blog_comentarios`
+--
+
+CREATE TABLE `blog_comentarios` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `publicacao` int(10) NOT NULL,
+  `nome` varchar(120) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mensagem` text NOT NULL,
+  `status` int(10) NOT NULL,
+  `datacomentario` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `blog_comentarios`
+--
+
+INSERT INTO `blog_comentarios` (`id`, `publicacao`, `nome`, `email`, `mensagem`, `status`, `datacomentario`) VALUES
+(1, 6, 'sdfsad', 'fsdaf', 'sdafsdf', 1, '2020-09-15 18:28:48');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `blog_publicacoes`
+--
+
+CREATE TABLE `blog_publicacoes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `titulo` varchar(120) DEFAULT NULL,
+  `categoria` int(10) DEFAULT NULL,
+  `publicador` varchar(30) DEFAULT NULL,
+  `resumo` text DEFAULT NULL,
+  `texto` text DEFAULT NULL,
+  `imagem` varchar(120) DEFAULT NULL,
+  `video` varchar(120) DEFAULT NULL,
+  `datapublicacao` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `contatos`
 --
 
 CREATE TABLE `contatos` (
   `id` int(11) UNSIGNED NOT NULL,
-  `nome` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `telefone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `assunto` text COLLATE utf8_unicode_ci NOT NULL,
-  `mensagem` text COLLATE utf8_unicode_ci NOT NULL,
-  `datacontato` datetime NOT NULL,
-  `status` varchar(40) COLLATE utf8_unicode_ci NOT NULL
+  `nome` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telefone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mensagem` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `datacontato` datetime DEFAULT current_timestamp(),
+  `status` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `contatos`
+--
+
+INSERT INTO `contatos` (`id`, `nome`, `telefone`, `email`, `mensagem`, `datacontato`, `status`) VALUES
+(1, 'sdafadsf', 'asdf', 'sdafdsf', 'asdf', '2020-09-23 14:14:56', '2'),
+(2, 'Felipe Sergio', '11 930937007', 'felipesergio@outlook.com', '', '2020-09-23 15:35:37', '2'),
+(3, 'Felipe Sergio', '11 930937007', 'felipesergio@outlook.com', '', '2020-09-23 15:35:44', '2'),
+(4, 'Felipe Sergio', '11 930937007', 'felipesergio@outlook.com', '', '2020-09-23 15:35:50', '2'),
+(5, 'Felipe Sergio', '11 930937007', 'felipesergio@outlook.com', '', '2020-09-23 15:36:08', '2'),
+(6, 'sdfsdf', '333333', 'sdfds@hotmail.com', 'sdfsdfsd', '2020-09-23 15:37:24', '2'),
+(7, '', '', '', '', '2020-09-23 15:38:36', '');
 
 -- --------------------------------------------------------
 
@@ -191,7 +307,7 @@ CREATE TABLE `informacoes` (
 --
 
 INSERT INTO `informacoes` (`id`, `telefone`, `email`, `instagram`, `facebook`, `telegram`, `youtube`) VALUES
-(1, 'telefone2b', 'email2b', 'instagram2b', 'facebook2b', 'telegram2b', 'youtube2b');
+(1, 'telefone2b2', 'email2b2', 'instagram2b2', 'facebook2b2', 'telegram2b2', 'youtube2b2');
 
 -- --------------------------------------------------------
 
@@ -213,20 +329,6 @@ CREATE TABLE `orcamentos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `paginas`
---
-
-CREATE TABLE `paginas` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `titulo` text COLLATE utf8_unicode_ci NOT NULL,
-  `resumo` text COLLATE utf8_unicode_ci NOT NULL,
-  `descricao` text COLLATE utf8_unicode_ci NOT NULL,
-  `imagem` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `seo`
 --
 
@@ -242,7 +344,7 @@ CREATE TABLE `seo` (
 --
 
 INSERT INTO `seo` (`id`, `description`, `keywords`, `analytics`) VALUES
-(1, 'desciptions', 'keywordss', 'analytiucss');
+(1, 'desciptions2', 'keywordss2', 'analytiucss2');
 
 -- --------------------------------------------------------
 
@@ -317,6 +419,36 @@ ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `blocos`
+--
+ALTER TABLE `blocos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `blocos_paginas`
+--
+ALTER TABLE `blocos_paginas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `blog_categorias`
+--
+ALTER TABLE `blog_categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `blog_comentarios`
+--
+ALTER TABLE `blog_comentarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `blog_publicacoes`
+--
+ALTER TABLE `blog_publicacoes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `contatos`
 --
 ALTER TABLE `contatos`
@@ -338,12 +470,6 @@ ALTER TABLE `informacoes`
 -- Índices para tabela `orcamentos`
 --
 ALTER TABLE `orcamentos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices para tabela `paginas`
---
-ALTER TABLE `paginas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -372,7 +498,7 @@ ALTER TABLE `anunciantes`
 -- AUTO_INCREMENT de tabela `anunciantes_categoria`
 --
 ALTER TABLE `anunciantes_categoria`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `anunciantes_comentarios`
@@ -411,10 +537,40 @@ ALTER TABLE `banners`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `blocos`
+--
+ALTER TABLE `blocos`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `blocos_paginas`
+--
+ALTER TABLE `blocos_paginas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `blog_categorias`
+--
+ALTER TABLE `blog_categorias`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `blog_comentarios`
+--
+ALTER TABLE `blog_comentarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `blog_publicacoes`
+--
+ALTER TABLE `blog_publicacoes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de tabela `contatos`
 --
 ALTER TABLE `contatos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `destaques`
@@ -435,12 +591,6 @@ ALTER TABLE `orcamentos`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `paginas`
---
-ALTER TABLE `paginas`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `seo`
 --
 ALTER TABLE `seo`
@@ -450,7 +600,7 @@ ALTER TABLE `seo`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

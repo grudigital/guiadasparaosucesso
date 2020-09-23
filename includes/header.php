@@ -78,12 +78,14 @@ mysqli_close($conn);
 									</span>
                                 <div id="menu">
                                     <ul>
-                                        <li><span><a href="#0">Categoria</a></span></li>
-                                        <li><span><a href="#0">Categoria</a></span></li>
-                                        <li><span><a href="#0">Categoria</a></span></li>
-                                        <li><span><a href="#0">Categoria</a></span></li>
-                                        <li><span><a href="#0">Categoria</a></span></li>
-
+                                        <?php
+                                        require("admin/connections/conn.php");
+                                        $sql = "select * FROM anunciantes_categoria";
+                                        $result = mysqli_query($conn, $sql);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<li><span><a href='categoria.php?id=$row[id]'>$row[categoria]</a></span></li>";
+                                        }
+                                        ?>
                                     </ul>
                                 </div>
                             </li>
