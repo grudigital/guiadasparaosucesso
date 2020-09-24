@@ -56,8 +56,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php include 'includes/blocos-listar.php' ?>
                                 </div>
                             </div>
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

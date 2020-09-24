@@ -21,7 +21,7 @@
                     <a href="blocos.php" class="waves-effect"><i class="mdi mdi-buffer"></i><span>Blocos</span></a>
                 </li>
                 <li>
-                    <a href="blog.php" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span>Blog</span></a>
+                    <a href="produtos.php" class="waves-effect"><i class="mdi mdi-gift"></i><span>Produtos</span></a>
                 </li>
                 <li>
                     <a href="categorias.php" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Categorias</span></a>

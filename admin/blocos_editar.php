@@ -80,14 +80,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Resumo</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<textarea class='form-control' name='resumo'>$row[bresumo]</textarea>";
+                                        echo "<textarea class='form-control' id='resumo' name='resumo'>$row[bresumo]</textarea>";
                                         echo "</div>";
                                         echo "</div>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Texto</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<textarea class='form-control' name='texto'>$row[btexto]</textarea>";
+                                        echo "<textarea class='form-control' id='resumo' name='texto'>$row[btexto]</textarea>";
                                         echo "</div>";
                                         echo "</div>";
 

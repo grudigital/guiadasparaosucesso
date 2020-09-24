@@ -13,78 +13,32 @@
 	<main>
 		<div id="carousel-home-2">
 			<div class="owl-carousel owl-theme">
-				<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_1_vertical.jpg);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-start">
-								<div class="col-lg-12 static">
-									<div class="slide-text text-center white">
-										<h2 class="owl-slide-animated owl-slide-title">Runnig<br>Collection</h2>
-										<p class="owl-slide-animated owl-slide-subtitle">
-											Limited items available at this price
-										</p>
-										<div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="listing-grid-1-full.html" role="button">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/owl-slide-->
-				<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_2_vertical.jpg);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-start">
-								<div class="col-lg-12 static">
-									<div class="slide-text text-center white">
-										<h2 class="owl-slide-animated owl-slide-title">Easy Fit<br>Collection</h2>
-										<p class="owl-slide-animated owl-slide-subtitle">
-											Limited items available at this price
-										</p>
-										<div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="listing-grid-1-full.html" role="button">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/owl-slide-->
-				<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_3_vertical.jpg);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-start">
-								<div class="col-lg-12 static">
-									<div class="slide-text text-center white">
-										<h2 class="owl-slide-animated owl-slide-title">Casual<br>Collection</h2>
-										<p class="owl-slide-animated owl-slide-subtitle">
-											Limited items available at this price
-										</p>
-										<div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="listing-grid-1-full.html" role="button">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/owl-slide-->
-				<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_4_vertical.jpg);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-start">
-								<div class="col-lg-12 static">
-									<div class="slide-text text-center black">
-										<h2 class="owl-slide-animated owl-slide-title">Attack Air<br>Monarch</h2>
-										<p class="owl-slide-animated owl-slide-subtitle">
-											Lightweight cushioning and durable support with a Phylon midsole
-										</p>
-										<div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="listing-grid-1-full.html" role="button">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--/owl-slide-->
-				</div>
+
+
+                <?php
+                require("admin/connections/conn.php");
+                $sql = "select * FROM banners where local = 1 and status = 1";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+
+
+                echo "<div class='owl-slide cover' style='background-image: url(admin/uploads/banners/$row[imagem]);'>";
+                    echo "<div class='opacity-mask d-flex align-items-center' data-opacity-mask='rgba(0, 0, 0, 0.5)'>";
+                        echo "<div class='container'>";
+                            echo "<div class='row justify-content-center justify-content-md-start'>";
+                                echo "<div class='col-lg-12 static'>";
+                                    echo "<div class='slide-text text-center white'>";
+                                        echo "<p class='owl-slide-animated owl-slide-subtitle'>$row[titulo]</p>";
+                                        echo "</div>";
+                                    echo "</div>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                echo "</div>";
+
+                }
+                ?>
+
 			</div>
 			<div id="icon_drag_mobile"></div>
 		</div>
@@ -174,7 +128,13 @@
 					</div>
 					<!-- /grid_item -->
 				</div>
-				<!-- /col -->
+
+
+
+
+
+
+                <!-- /col -->
 				<div class="col-6 col-md-4 col-xl-3">
 					<div class="grid_item">
 						<span class="ribbon off">-30%</span>
@@ -357,28 +317,25 @@
 			</div>
 			<!-- /row -->
 		</div>
-		<!-- /container -->
+        <?php
+        require("admin/connections/conn.php");
+        $sql = "select * FROM banners where local = 2";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
 
-		<div class="featured lazy" data-bg="url(img/featured_home.jpg)">
-			<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-				<div class="container margin_60">
-					<div class="row justify-content-center justify-content-md-start">
-						<div class="col-lg-6 wow" data-wow-offset="150">
-							<h3>Armor<br>Air Color 720</h3>
-							<p>Lightweight cushioning and durable support with a Phylon midsole</p>
-							<div class="feat_text_block">
-								<div class="price_box">
-									<span class="new_price">$90.00</span>
-									<span class="old_price">$170.00</span>
-								</div>
-								<a class="btn_1" href="listing-grid-1-full.html" role="button">Shop Now</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /featured -->
+        echo "<div class='featured lazy' data-bg='url(admin/uploads/banners/$row[imagem])'>";
+            echo "<div class='opacity-mask d-flex align-items-center' data-opacity-mask='rgba(0, 0, 0, 0.5)'>";
+                echo "<div class='container margin_60'>";
+                    echo "<div class='row justify-content-center justify-content-md-start'>";
+                        echo "<div class='col-lg-6 wow' data-wow-offset='150'>";
+                            echo "<h3>$row[titulo]</h3>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+        }
+        ?>
 
 		<div class="container margin_60_35">
 			<div class="main_title">
@@ -515,77 +472,41 @@
 		<!-- /container -->
 
 
-		<div class="container margin_60_35">
-			<div class="main_title">
-				<h2>Últimos posts</h2>
-				<span>Blog</span>
-				<p>O que há de melhor no mercado para seu evento</p>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-1.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>by Mark Twain</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Pri oportere scribentur eu</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-2.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>By Jhon Doe</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Duo eius postea suscipit ad</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-3.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>By Luca Robinson</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Elitr mandamus cu has</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-4.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>By Paula Rodrigez</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Id est adhuc ignota delenit</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
+        <div class="container margin_60_35">
+            <div class="main_title">
+                <h2>Produtos</h2>
+                <span>Produtos</span>
+                <p>Confira nossos produtos oficiais</p>
+            </div>
+            <div class="owl-carousel owl-theme products_carousel">
+
+                <?php
+                require("admin/connections/conn.php");
+                $sql = "select id, titulo,resumo,descricao,imagem,video,linkpagamento,precoantigo,preconovo,status,datacadastro FROM produtos where status = 1 ";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    echo "<div class='item'>";
+                    echo "<div class='grid_item'>";
+                    echo "<figure>";
+                    echo "<a href='produto_interna.php?id=$row[id]'>";
+                    echo "<img class='owl-lazy' src='admin/uploads/produtos/$row[imagem]'
+                                     data-src='admin/uploads/produtos/$row[imagem]' alt=''>";
+                    echo "</a>";
+                    echo "</figure>";
+                    echo "<a href='produto_interna.php?id=$row[id]'>";
+                    echo "<h3>$row[titulo]</h3>";
+                    echo "</a>";
+                    echo "<div class='price_box'>";
+                    echo "<span class='new_price'>$row[preconovo]</span>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+
+                }
+                ?>
+            </div>
+        </div>
 	</main>
 	<!-- /main -->
 

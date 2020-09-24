@@ -81,13 +81,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Resumo</label>
                                         <div class="col-sm-10">
-                                            <textarea name="resumo" class="form-control"></textarea>
+                                            <textarea name="resumo" id="resumo" class="form-control"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Texto</label>
                                         <div class="col-sm-10">
-                                            <textarea name="texto" class="form-control"></textarea>
+                                            <textarea name="texto" id="resumo" class="form-control"></textarea>
                                         </div>
                                     </div>
 

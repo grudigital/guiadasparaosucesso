@@ -24,13 +24,13 @@
                         </div>
                         <ul>
                             <li>
-                                <a href="index.php">Página principal</a>
+                                <a href="index.php">Home</a>
                             </li>
                             <li>
                                 <a href="quem-somos.php">Quem somos</a>
                             </li>
                             <li>
-                            <a href="blog.php">Blog</a>
+                            <a href="produtos.php">Produtos</a>
                             </li>
                             <li>
                                 <a href="faca-parte.php">Faça parte</a>

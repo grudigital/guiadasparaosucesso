@@ -36,7 +36,8 @@
     <link href="css/home_1.css" rel="stylesheet">
     <link href="css/contact.css" rel="stylesheet">
     <link href="css/blog.css" rel="stylesheet">
-
+    <link href="css/listing.css" rel="stylesheet">
+    <link href="css/product_page.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
