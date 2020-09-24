@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2020 às 23:08
+-- Tempo de geração: 24-Set-2020 às 22:13
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -143,10 +143,57 @@ CREATE TABLE `anunciantes_video` (
 
 CREATE TABLE `banners` (
   `id` int(11) UNSIGNED NOT NULL,
-  `titulo` text COLLATE utf8_unicode_ci NOT NULL,
-  `imagem` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `local` int(10) NOT NULL,
+  `titulo` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `imagem` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `link` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(5) DEFAULT NULL,
+  `datacadastro` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `banners`
+--
+
+INSERT INTO `banners` (`id`, `local`, `titulo`, `imagem`, `link`, `status`, `datacadastro`) VALUES
+(3, 1, 'Banner 1', '1600966120.jpg', '#', 1, '2020-09-24 13:46:24'),
+(4, 1, 'Banner 2', '1600966130.jpg', '#', 1, '2020-09-24 13:46:35'),
+(5, 1, 'Banner 3', '1600966142.jpg', '#', 1, '2020-09-24 13:46:54'),
+(6, 1, 'Banner 4', '1600966156.jpg', '#', 1, '2020-09-24 13:47:07'),
+(7, 1, 'Banner 5', '1600966168.jpg', '#', 1, '2020-09-24 13:47:26'),
+(8, 1, 'Banner 6', '1600966186.jpg', '#', 1, '2020-09-24 13:47:37'),
+(9, 1, 'Banner 7', '1600966199.jpg', '#', 1, '2020-09-24 13:47:49'),
+(10, 1, 'Banner 8', '1600966211.jpg', '#', 1, '2020-09-24 13:48:05'),
+(11, 3, 'Quem somos', '1600966557.jpg', '#', 1, '2020-09-24 13:54:21'),
+(12, 4, 'Faça parte', '1600966581.jpg', '#', 1, '2020-09-24 13:54:38'),
+(13, 5, 'Termos de uso', '1600966597.jpg', '#', 1, '2020-09-24 13:54:54'),
+(14, 6, 'Política de privacidade', '1600966614.jpg', '#', 1, '2020-09-24 13:55:16'),
+(15, 2, 'Banner do meio', '1600966935.jpg', '#', 1, '2020-09-24 14:01:58'),
+(17, 7, 'Produtos', '1600974895.jpg', '#', 1, '2020-09-24 16:14:36');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `banners_local`
+--
+
+CREATE TABLE `banners_local` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `local` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `banners_local`
+--
+
+INSERT INTO `banners_local` (`id`, `local`) VALUES
+(1, 'Home - topo ( 600 x 800 ) '),
+(2, 'Home - meio( 1200 x 800 ) '),
+(3, 'Quem somos ( 1600 x 950 )'),
+(4, 'Faça parte ( 1600 x 950 )'),
+(5, 'Termos de uso ( 1600 x 950 )'),
+(6, 'Politica de privacidade ( 1600 x 950 )'),
+(7, 'Produtos ( 1350 x 550 )');
 
 -- --------------------------------------------------------
 
@@ -162,6 +209,20 @@ CREATE TABLE `blocos` (
   `texto` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `imagem` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `blocos`
+--
+
+INSERT INTO `blocos` (`id`, `titulo`, `pagina`, `resumo`, `texto`, `imagem`) VALUES
+(3, 'História', '1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600959200.jpg'),
+(4, 'Propósitos do grupo', '1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600959235.jpg'),
+(5, 'Atuais gestoras e suas principais funções', '1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600959251.jpg'),
+(6, 'Missão, visão e valores', '1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600959266.jpg'),
+(7, 'Como se tornar uma GPS', '2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600970204.jpg'),
+(8, 'Planos e valores', '2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600970217.jpg'),
+(9, 'Termos de uso', '3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600970552.jpg'),
+(10, 'Política de privacidade', '4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus magna sit amet elit efficitur faucibus. Sed sodales nulla purus, nec porta ipsum rutrum ut. Integer aliquam mattis facilisis. Donec imperdiet mi quis est placerat facilisis. Cras semper placerat elementum. Mauris pulvinar iaculis ante, sit amet blandit eros condimentum a. Sed vel mollis libero. Ut nibh felis, luctus in eros non, semper vestibulum ex. Donec rutrum quam quam, vitae facilisis leo tincidunt quis. Etiam tempus euismod ornare. Morbi quis quam ex. Donec auctor fermentum nibh a sagittis. Pellentesque nec lectus quam.', '1600970719.jpg');
 
 -- --------------------------------------------------------
 
@@ -329,6 +390,37 @@ CREATE TABLE `orcamentos` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `titulo` varchar(200) DEFAULT NULL,
+  `resumo` text DEFAULT NULL,
+  `descricao` text DEFAULT NULL,
+  `imagem` varchar(120) DEFAULT NULL,
+  `video` varchar(120) DEFAULT NULL,
+  `linkpagamento` varchar(200) DEFAULT NULL,
+  `preconovo` varchar(60) DEFAULT NULL,
+  `precoantigo` varchar(60) DEFAULT NULL,
+  `status` int(10) DEFAULT NULL,
+  `datacadastro` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `titulo`, `resumo`, `descricao`, `imagem`, `video`, `linkpagamento`, `preconovo`, `precoantigo`, `status`, `datacadastro`) VALUES
+(2, 'Produto 1', '<p>Resumo do produto 1</p>', '<p>Descri&ccedil;&atilde;o do produto 1</p>', '1600976256.jpg', NULL, '#', '100', '150', 1, '2020-09-24 16:34:07'),
+(3, 'Produto 2', '<p>resumo do produto 2</p>', '<p>descri&ccedil;&atilde;o do produto 2</p>', '1600976446.jpg', NULL, '#', '500', '600', 1, '2020-09-24 16:39:23'),
+(4, 'Produto 3', '<p>resumo de produto 3</p>', '<p>descri&ccedil;&atilde;o de produto 3</p>', '1600976567.jpg', NULL, '#', '500', '20', 1, '2020-09-24 16:41:22'),
+(5, 'Produto 4', '<p>resumo de produto 4</p>', '<p>descri&ccedil;&atilde;o de produto 4</p>', '1600976580.jpg', NULL, '#', '100', '100', 1, '2020-09-24 16:41:51'),
+(6, 'Produto 5', '<p>resumo de produto 4</p>', '<p>descricao de produto 5</p>', '1600976626.jpg', 'epG47IUL68k', '#', '33', '333', 1, '2020-09-24 16:43:29');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `seo`
 --
 
@@ -419,6 +511,12 @@ ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `banners_local`
+--
+ALTER TABLE `banners_local`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `blocos`
 --
 ALTER TABLE `blocos`
@@ -470,6 +568,12 @@ ALTER TABLE `informacoes`
 -- Índices para tabela `orcamentos`
 --
 ALTER TABLE `orcamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `produtos`
+--
+ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -534,13 +638,19 @@ ALTER TABLE `anunciantes_video`
 -- AUTO_INCREMENT de tabela `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de tabela `banners_local`
+--
+ALTER TABLE `banners_local`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `blocos`
 --
 ALTER TABLE `blocos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `blocos_paginas`
@@ -589,6 +699,12 @@ ALTER TABLE `informacoes`
 --
 ALTER TABLE `orcamentos`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `seo`
