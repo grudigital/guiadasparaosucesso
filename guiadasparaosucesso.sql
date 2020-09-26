@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2020 às 22:13
+-- Host: localhost
+-- Tempo de geração: 26/09/2020 às 18:01
 -- Versão do servidor: 10.4.13-MariaDB
--- versão do PHP: 7.4.7
+-- Versão do PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes`
+-- Estrutura para tabela `anunciantes`
 --
 
 CREATE TABLE `anunciantes` (
@@ -50,7 +50,7 @@ CREATE TABLE `anunciantes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes_categoria`
+-- Estrutura para tabela `anunciantes_categoria`
 --
 
 CREATE TABLE `anunciantes_categoria` (
@@ -59,7 +59,7 @@ CREATE TABLE `anunciantes_categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `anunciantes_categoria`
+-- Despejando dados para a tabela `anunciantes_categoria`
 --
 
 INSERT INTO `anunciantes_categoria` (`id`, `categoria`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `anunciantes_categoria` (`id`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes_comentarios`
+-- Estrutura para tabela `anunciantes_comentarios`
 --
 
 CREATE TABLE `anunciantes_comentarios` (
@@ -86,7 +86,7 @@ CREATE TABLE `anunciantes_comentarios` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes_estrelas`
+-- Estrutura para tabela `anunciantes_estrelas`
 --
 
 CREATE TABLE `anunciantes_estrelas` (
@@ -99,7 +99,7 @@ CREATE TABLE `anunciantes_estrelas` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes_fotos`
+-- Estrutura para tabela `anunciantes_fotos`
 --
 
 CREATE TABLE `anunciantes_fotos` (
@@ -111,7 +111,7 @@ CREATE TABLE `anunciantes_fotos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes_orcamento`
+-- Estrutura para tabela `anunciantes_orcamento`
 --
 
 CREATE TABLE `anunciantes_orcamento` (
@@ -126,7 +126,7 @@ CREATE TABLE `anunciantes_orcamento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anunciantes_video`
+-- Estrutura para tabela `anunciantes_video`
 --
 
 CREATE TABLE `anunciantes_video` (
@@ -138,7 +138,7 @@ CREATE TABLE `anunciantes_video` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `banners`
+-- Estrutura para tabela `banners`
 --
 
 CREATE TABLE `banners` (
@@ -152,7 +152,7 @@ CREATE TABLE `banners` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `banners`
+-- Despejando dados para a tabela `banners`
 --
 
 INSERT INTO `banners` (`id`, `local`, `titulo`, `imagem`, `link`, `status`, `datacadastro`) VALUES
@@ -174,7 +174,7 @@ INSERT INTO `banners` (`id`, `local`, `titulo`, `imagem`, `link`, `status`, `dat
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `banners_local`
+-- Estrutura para tabela `banners_local`
 --
 
 CREATE TABLE `banners_local` (
@@ -183,7 +183,7 @@ CREATE TABLE `banners_local` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `banners_local`
+-- Despejando dados para a tabela `banners_local`
 --
 
 INSERT INTO `banners_local` (`id`, `local`) VALUES
@@ -198,7 +198,7 @@ INSERT INTO `banners_local` (`id`, `local`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `blocos`
+-- Estrutura para tabela `blocos`
 --
 
 CREATE TABLE `blocos` (
@@ -211,7 +211,7 @@ CREATE TABLE `blocos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `blocos`
+-- Despejando dados para a tabela `blocos`
 --
 
 INSERT INTO `blocos` (`id`, `titulo`, `pagina`, `resumo`, `texto`, `imagem`) VALUES
@@ -227,7 +227,7 @@ INSERT INTO `blocos` (`id`, `titulo`, `pagina`, `resumo`, `texto`, `imagem`) VAL
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `blocos_paginas`
+-- Estrutura para tabela `blocos_paginas`
 --
 
 CREATE TABLE `blocos_paginas` (
@@ -236,7 +236,7 @@ CREATE TABLE `blocos_paginas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `blocos_paginas`
+-- Despejando dados para a tabela `blocos_paginas`
 --
 
 INSERT INTO `blocos_paginas` (`id`, `pagina`) VALUES
@@ -248,7 +248,7 @@ INSERT INTO `blocos_paginas` (`id`, `pagina`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `blog_categorias`
+-- Estrutura para tabela `blog_categorias`
 --
 
 CREATE TABLE `blog_categorias` (
@@ -257,7 +257,7 @@ CREATE TABLE `blog_categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `blog_categorias`
+-- Despejando dados para a tabela `blog_categorias`
 --
 
 INSERT INTO `blog_categorias` (`id`, `categoria`) VALUES
@@ -267,7 +267,7 @@ INSERT INTO `blog_categorias` (`id`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `blog_comentarios`
+-- Estrutura para tabela `blog_comentarios`
 --
 
 CREATE TABLE `blog_comentarios` (
@@ -281,7 +281,7 @@ CREATE TABLE `blog_comentarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `blog_comentarios`
+-- Despejando dados para a tabela `blog_comentarios`
 --
 
 INSERT INTO `blog_comentarios` (`id`, `publicacao`, `nome`, `email`, `mensagem`, `status`, `datacomentario`) VALUES
@@ -290,7 +290,7 @@ INSERT INTO `blog_comentarios` (`id`, `publicacao`, `nome`, `email`, `mensagem`,
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `blog_publicacoes`
+-- Estrutura para tabela `blog_publicacoes`
 --
 
 CREATE TABLE `blog_publicacoes` (
@@ -305,10 +305,41 @@ CREATE TABLE `blog_publicacoes` (
   `datapublicacao` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Despejando dados para a tabela `blog_publicacoes`
+--
+
+INSERT INTO `blog_publicacoes` (`id`, `titulo`, `categoria`, `publicador`, `resumo`, `texto`, `imagem`, `video`, `datapublicacao`) VALUES
+(7, 'sdsad', 1, '1', 'sdfsadfdss', 'adfsdf', NULL, NULL, '2020-09-25 22:57:13');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contatos`
+-- Estrutura para tabela `categorias_destaques`
+--
+
+CREATE TABLE `categorias_destaques` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `local` varchar(10) DEFAULT NULL,
+  `medidas` varchar(100) DEFAULT NULL,
+  `categoria` int(10) DEFAULT NULL,
+  `imagem` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `categorias_destaques`
+--
+
+INSERT INTO `categorias_destaques` (`id`, `local`, `medidas`, `categoria`, `imagem`) VALUES
+(1, '1', '700x604', 5, '1601080010.jpg'),
+(2, '2', '560x480', 5, '1601080132.jpg'),
+(3, '3', '560x480', 5, '1601080143.jpg'),
+(4, '4', '800x343', 4, '1601080215.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `contatos`
 --
 
 CREATE TABLE `contatos` (
@@ -322,7 +353,7 @@ CREATE TABLE `contatos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `contatos`
+-- Despejando dados para a tabela `contatos`
 --
 
 INSERT INTO `contatos` (`id`, `nome`, `telefone`, `email`, `mensagem`, `datacontato`, `status`) VALUES
@@ -337,7 +368,7 @@ INSERT INTO `contatos` (`id`, `nome`, `telefone`, `email`, `mensagem`, `datacont
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `destaques`
+-- Estrutura para tabela `destaques`
 --
 
 CREATE TABLE `destaques` (
@@ -350,7 +381,7 @@ CREATE TABLE `destaques` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `informacoes`
+-- Estrutura para tabela `informacoes`
 --
 
 CREATE TABLE `informacoes` (
@@ -364,7 +395,7 @@ CREATE TABLE `informacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `informacoes`
+-- Despejando dados para a tabela `informacoes`
 --
 
 INSERT INTO `informacoes` (`id`, `telefone`, `email`, `instagram`, `facebook`, `telegram`, `youtube`) VALUES
@@ -373,7 +404,7 @@ INSERT INTO `informacoes` (`id`, `telefone`, `email`, `instagram`, `facebook`, `
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `orcamentos`
+-- Estrutura para tabela `orcamentos`
 --
 
 CREATE TABLE `orcamentos` (
@@ -390,7 +421,7 @@ CREATE TABLE `orcamentos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos`
+-- Estrutura para tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -408,7 +439,7 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos`
+-- Despejando dados para a tabela `produtos`
 --
 
 INSERT INTO `produtos` (`id`, `titulo`, `resumo`, `descricao`, `imagem`, `video`, `linkpagamento`, `preconovo`, `precoantigo`, `status`, `datacadastro`) VALUES
@@ -421,7 +452,7 @@ INSERT INTO `produtos` (`id`, `titulo`, `resumo`, `descricao`, `imagem`, `video`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `seo`
+-- Estrutura para tabela `seo`
 --
 
 CREATE TABLE `seo` (
@@ -432,7 +463,7 @@ CREATE TABLE `seo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `seo`
+-- Despejando dados para a tabela `seo`
 --
 
 INSERT INTO `seo` (`id`, `description`, `keywords`, `analytics`) VALUES
@@ -441,7 +472,7 @@ INSERT INTO `seo` (`id`, `description`, `keywords`, `analytics`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -452,144 +483,150 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
 (1, 'Felipe Sergio', 'felipe@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3');
 
 --
--- Índices para tabelas despejadas
+-- Índices de tabelas apagadas
 --
 
 --
--- Índices para tabela `anunciantes`
+-- Índices de tabela `anunciantes`
 --
 ALTER TABLE `anunciantes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `anunciantes_categoria`
+-- Índices de tabela `anunciantes_categoria`
 --
 ALTER TABLE `anunciantes_categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `anunciantes_comentarios`
+-- Índices de tabela `anunciantes_comentarios`
 --
 ALTER TABLE `anunciantes_comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `anunciantes_estrelas`
+-- Índices de tabela `anunciantes_estrelas`
 --
 ALTER TABLE `anunciantes_estrelas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `anunciantes_fotos`
+-- Índices de tabela `anunciantes_fotos`
 --
 ALTER TABLE `anunciantes_fotos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `anunciantes_orcamento`
+-- Índices de tabela `anunciantes_orcamento`
 --
 ALTER TABLE `anunciantes_orcamento`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `anunciantes_video`
+-- Índices de tabela `anunciantes_video`
 --
 ALTER TABLE `anunciantes_video`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `banners`
+-- Índices de tabela `banners`
 --
 ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `banners_local`
+-- Índices de tabela `banners_local`
 --
 ALTER TABLE `banners_local`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `blocos`
+-- Índices de tabela `blocos`
 --
 ALTER TABLE `blocos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `blocos_paginas`
+-- Índices de tabela `blocos_paginas`
 --
 ALTER TABLE `blocos_paginas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `blog_categorias`
+-- Índices de tabela `blog_categorias`
 --
 ALTER TABLE `blog_categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `blog_comentarios`
+-- Índices de tabela `blog_comentarios`
 --
 ALTER TABLE `blog_comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `blog_publicacoes`
+-- Índices de tabela `blog_publicacoes`
 --
 ALTER TABLE `blog_publicacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `contatos`
+-- Índices de tabela `categorias_destaques`
+--
+ALTER TABLE `categorias_destaques`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `contatos`
 --
 ALTER TABLE `contatos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `destaques`
+-- Índices de tabela `destaques`
 --
 ALTER TABLE `destaques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `informacoes`
+-- Índices de tabela `informacoes`
 --
 ALTER TABLE `informacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `orcamentos`
+-- Índices de tabela `orcamentos`
 --
 ALTER TABLE `orcamentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos`
+-- Índices de tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `seo`
+-- Índices de tabela `seo`
 --
 ALTER TABLE `seo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
@@ -674,7 +711,13 @@ ALTER TABLE `blog_comentarios`
 -- AUTO_INCREMENT de tabela `blog_publicacoes`
 --
 ALTER TABLE `blog_publicacoes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `categorias_destaques`
+--
+ALTER TABLE `categorias_destaques`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `contatos`

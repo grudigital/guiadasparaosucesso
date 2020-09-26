@@ -44,21 +44,10 @@ if ($_SESSION['usuarioNome'] == '') {
                                                 <p class="text-muted m-b-30 font-14">Lista de categorias</p>
                                             </div>
                                             <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <a href="categorias_adicionar.php">
-                                                    <button style="float: right" type='button' class='btn btn-success'>
-                                                        Adicionar
-                                                    </button>
-                                                </a>
-                                                <a href="categorias_destaques.php">
-                                                    <button style="float: right; margin-right:10px" type='button' class='btn btn-info'>
-                                                        Destaques
-                                                    </button>
-                                                </a>
-                                            </div>
+                                            <div class="col-4"></div>
                                         </div>
                                     </div>
-                                    <?php include 'includes/categorias-listar.php' ?>
+                                    <?php include 'includes/categorias-destaques-listar.php' ?>
                                 </div>
                             </div>
                         </div> <!-- end col -->
