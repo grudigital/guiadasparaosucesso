@@ -6,6 +6,7 @@
                 <th style="width: 96%">Categoria</th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
+                <th style="width: 2%"></th>
             </tr>
             </thead>
             <tbody>
@@ -17,6 +18,7 @@
                 echo "<tr>";
                 echo "<td>$row[categoria]</td>";
                 echo "<td><a href='categorias_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
+                echo "<td><a href='categorias_imagem.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Imagem</button></a></td>";
                 echo "<td><a href='functions/categorias_excluir.php?id=$row[id]'><button type='button' class='btn btn-danger'>Excluir</button></a></td>";
                 echo "</tr>";
             }
