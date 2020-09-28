@@ -4,8 +4,9 @@
             <thead>
             <tr>
                 <th style="width: 50%">Titulo</th>
-                <th style="width: 25%">Categoria</th>
+                <th style="width: 23%">Categoria</th>
                 <th style="width: 15%"></th>
+                <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
@@ -32,6 +33,7 @@
                 echo "<td><a href='anunciantes_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
                 echo "<td><a href='anunciantes_video.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Vídeo</button></a></td>";
                 echo "<td><a href='anunciantes_comentarios.php?id=$row[id]'><button type='button' class='btn btn-info'>Comentários</button></a></td>";
+                echo "<td><a href='anunciantes_orcamentos.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Orçamentos</button></a></td>";
                 echo "<td><a href='functions/anunciantes_excluir.php?id=$row[id]'><button type='button' class='btn btn-danger'>Deletar</button></a></td>";
                 echo "</tr>";
             }
