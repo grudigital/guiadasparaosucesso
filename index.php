@@ -47,48 +47,119 @@
 
         <div class="container margin_60_35">
             <div class="row small-gutters categories_grid">
-                <div class="col-sm-12 col-md-6">
-                    <a href="listing-grid-1-full.html">
-                        <img src="img/img_cat_home_1_placeholder.png" data-src="img/img_cat_home_1.jpg" alt=""
-                             class="img-fluid lazy">
-                        <div class="wrapper">
-                            <h2>Life Style</h2>
-                            <p>115 Products</p>
-                        </div>
-                    </a>
-                </div>
+
+
+                <?php
+                require("admin/connections/conn.php");
+                $sql = "select ac.id acid, ac.categoria accategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes_categoria as ac inner join categorias_destaques as cd on ac.id = cd.categoria where cd.local = 1";
+                $result = mysqli_query($conn, $sql);
+
+                $sqllocal1 = "select a.id aid, a.categoria acategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes as a inner join categorias_destaques as cd on a.categoria = cd.categoria where cd.local = 1";
+                $executa_query_local1 = mysqli_query($conn, $sqllocal1);
+                $conta_linhas_local1 = mysqli_num_rows($executa_query_local1);
+
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    echo "<div class='col-sm-12 col-md-6'>";
+                    echo "<a href='categoria.php?id=$row[cdcategoria]'>";
+                    echo "<img src='img/img_cat_home_1_placeholder.png' data-src='admin/uploads/categorias/$row[cdimagem]' alt=''
+                             class='img-fluid lazy'>";
+                    echo "<div class='wrapper'>";
+                    echo "<h2>$row[accategoria]</h2>";
+                    echo "<p>$conta_linhas_local1 profissionais cadastrados</p>";
+                    echo "</div>";
+                    echo "</a>";
+                    echo "</div>";
+
+                }
+                mysqli_close($conn);
+                ?>
+
+
                 <div class="col-sm-12 col-md-6">
                     <div class="row small-gutters mt-md-0 mt-sm-2">
-                        <div class="col-sm-6">
-                            <a href="listing-grid-1-full.html">
-                                <img src="img/img_cat_home_2_placeholder.png" data-src="img/img_cat_home_2.jpg" alt=""
-                                     class="img-fluid lazy">
-                                <div class="wrapper">
-                                    <h2>Running</h2>
-                                    <p>150 Products</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="listing-grid-1-full.html">
-                                <img src="img/img_cat_home_2_placeholder.png" data-src="img/img_cat_home_3.jpg" alt=""
-                                     class="img-fluid lazy">
-                                <div class="wrapper">
-                                    <h2>Football</h2>
-                                    <p>90 Products</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-12 mt-sm-2">
-                            <a href="listing-grid-1-full.html">
-                                <img src="img/img_cat_home_4_placeholder.png" data-src="img/img_cat_home_4.jpg" alt=""
-                                     class="img-fluid lazy">
-                                <div class="wrapper">
-                                    <h2>Training</h2>
-                                    <p>120 Products</p>
-                                </div>
-                            </a>
-                        </div>
+
+
+                        <?php
+                        require("admin/connections/conn.php");
+                        $sql = "select ac.id acid, ac.categoria accategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes_categoria as ac inner join categorias_destaques as cd on ac.id = cd.categoria where cd.local = 2";
+                        $result = mysqli_query($conn, $sql);
+
+                        $sqllocal2 = "select a.id aid, a.categoria acategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes as a inner join categorias_destaques as cd on a.categoria = cd.categoria where cd.local = 2";
+                        $executa_query_local2 = mysqli_query($conn, $sqllocal2);
+                        $conta_linhas_local2 = mysqli_num_rows($executa_query_local2);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+
+                            echo "<div class='col-sm-6'>";
+                            echo "<a href='categoria.php?id=$row[cdcategoria]'>";
+                            echo "<img src='img/img_cat_home_1_placeholder.png' data-src='admin/uploads/categorias/$row[cdimagem]' alt=''
+                             class='img-fluid lazy'>";
+                            echo "<div class='wrapper'>";
+                            echo "<h2>$row[accategoria]</h2>";
+                            echo "<p>$conta_linhas_local2 profissionais cadastrados</p>";
+                            echo "</div>";
+                            echo "</a>";
+                            echo "</div>";
+
+                        }
+                        mysqli_close($conn);
+                        ?>
+
+                        <?php
+                        require("admin/connections/conn.php");
+                        $sql = "select ac.id acid, ac.categoria accategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes_categoria as ac inner join categorias_destaques as cd on ac.id = cd.categoria where cd.local = 3";
+                        $result = mysqli_query($conn, $sql);
+
+                        $sqllocal3 = "select a.id aid, a.categoria acategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes as a inner join categorias_destaques as cd on a.categoria = cd.categoria where cd.local = 3";
+                        $executa_query_local3 = mysqli_query($conn, $sqllocal3);
+                        $conta_linhas_local3 = mysqli_num_rows($executa_query_local3);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                            echo "<div class='col-sm-6'>";
+                            echo "<a href='categoria.php?id=$row[cdcategoria]'>";
+                            echo "<img src='img/img_cat_home_1_placeholder.png' data-src='admin/uploads/categorias/$row[cdimagem]' alt=''
+                             class='img-fluid lazy'>";
+                            echo "<div class='wrapper'>";
+                            echo "<h2>$row[accategoria]</h2>";
+                            echo "<p>$conta_linhas_local3 profissionais cadastrados</p>";
+                            echo "</div>";
+                            echo "</a>";
+                            echo "</div>";
+                        }
+                        mysqli_close($conn);
+                        ?>
+
+                        <?php
+                        require("admin/connections/conn.php");
+                        $sql = "select ac.id acid, ac.categoria accategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes_categoria as ac inner join categorias_destaques as cd on ac.id = cd.categoria where cd.local = 4";
+                        $result = mysqli_query($conn, $sql);
+
+                        $sqllocal4 = "select a.id aid, a.categoria acategoria, cd.id cdid, cd.local cdlocal, cd.medidas cdmedidas, cd.categoria cdcategoria, cd.imagem cdimagem from anunciantes as a inner join categorias_destaques as cd on a.categoria = cd.categoria where cd.local = 4";
+                        $executa_query_local4 = mysqli_query($conn, $sqllocal4);
+                        $conta_linhas_local4 = mysqli_num_rows($executa_query_local4);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                        echo "<div class='col-sm-12 mt-sm-2'>";
+                            echo "<a href='categoria.php?id=$row[cdcategoria]'>";
+                            echo "<img src='img/img_cat_home_1_placeholder.png' data-src='admin/uploads/categorias/$row[cdimagem]' alt=''
+                             class='img-fluid lazy'>";
+                                echo "<div class='wrapper'>";
+                            echo "<h2>$row[accategoria]</h2>";
+                            echo "<p>$conta_linhas_local4 profissionais cadastrados</p>";
+                                    echo "</div>";
+                                echo "</a>";
+                            echo "</div>";
+                        }
+                        mysqli_close($conn);
+                        ?>
+
+
+
+
                     </div>
                 </div>
 
@@ -217,7 +288,7 @@
                 <!-- /col -->
                 <div class="col-6 col-md-4 col-xl-3">
                     <div class="grid_item">
-                        <span class="ribbon new">New</span>
+                        <span class="ribbon new">new</span>
                         <figure>
                             <a href="product-detail-1.html">
                                 <img class="img-fluid lazy" src="img/products/product_placeholder_square_medium.jpg"
@@ -251,7 +322,7 @@
                 <!-- /col -->
                 <div class="col-6 col-md-4 col-xl-3">
                     <div class="grid_item">
-                        <span class="ribbon new">New</span>
+                        <span class="ribbon new">new</span>
                         <figure>
                             <a href="product-detail-1.html">
                                 <img class="img-fluid lazy" src="img/products/product_placeholder_square_medium.jpg"
@@ -285,7 +356,7 @@
                 <!-- /col -->
                 <div class="col-6 col-md-4 col-xl-3">
                     <div class="grid_item">
-                        <span class="ribbon new">New</span>
+                        <span class="ribbon new">new</span>
                         <figure>
                             <a href="product-detail-1.html">
                                 <img class="img-fluid lazy" src="img/products/product_placeholder_square_medium.jpg"
@@ -425,7 +496,8 @@
                             </a>
                         </figure>
                         <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-                                    class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
+                                    class="icon-star voted"></i><i class="icon-star voted"></i><i
+                                    class="icon-star"></i>
                         </div>
                         <a href="product-detail-1.html">
                             <h3>ACG React Terra</h3>
@@ -435,13 +507,16 @@
                         </div>
                         <ul>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a>
+                                   title="Add to favorites"><i
+                                            class="ti-heart"></i><span>Add to favorites</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a>
+                                   title="Add to compare"><i
+                                            class="ti-control-shuffle"></i><span>Add to compare</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /grid_item -->
@@ -457,7 +532,8 @@
                             </a>
                         </figure>
                         <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-                                    class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
+                                    class="icon-star voted"></i><i class="icon-star voted"></i><i
+                                    class="icon-star"></i>
                         </div>
                         <a href="product-detail-1.html">
                             <h3>Air Zoom Alpha</h3>
@@ -467,13 +543,16 @@
                         </div>
                         <ul>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a>
+                                   title="Add to favorites"><i
+                                            class="ti-heart"></i><span>Add to favorites</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a>
+                                   title="Add to compare"><i
+                                            class="ti-control-shuffle"></i><span>Add to compare</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /grid_item -->
@@ -489,7 +568,8 @@
                             </a>
                         </figure>
                         <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-                                    class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
+                                    class="icon-star voted"></i><i class="icon-star voted"></i><i
+                                    class="icon-star"></i>
                         </div>
                         <a href="product-detail-1.html">
                             <h3>Air Color 720</h3>
@@ -499,13 +579,16 @@
                         </div>
                         <ul>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a>
+                                   title="Add to favorites"><i
+                                            class="ti-heart"></i><span>Add to favorites</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a>
+                                   title="Add to compare"><i
+                                            class="ti-control-shuffle"></i><span>Add to compare</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /grid_item -->
@@ -521,7 +604,8 @@
                             </a>
                         </figure>
                         <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-                                    class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
+                                    class="icon-star voted"></i><i class="icon-star voted"></i><i
+                                    class="icon-star"></i>
                         </div>
                         <a href="product-detail-1.html">
                             <h3>Okwahn II</h3>
@@ -532,13 +616,16 @@
                         </div>
                         <ul>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a>
+                                   title="Add to favorites"><i
+                                            class="ti-heart"></i><span>Add to favorites</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a>
+                                   title="Add to compare"><i
+                                            class="ti-control-shuffle"></i><span>Add to compare</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /grid_item -->
@@ -554,7 +641,8 @@
                             </a>
                         </figure>
                         <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-                                    class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
+                                    class="icon-star voted"></i><i class="icon-star voted"></i><i
+                                    class="icon-star"></i>
                         </div>
                         <a href="product-detail-1.html">
                             <h3>Air Wildwood ACG</h3>
@@ -565,13 +653,16 @@
                         </div>
                         <ul>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a>
+                                   title="Add to favorites"><i
+                                            class="ti-heart"></i><span>Add to favorites</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a>
+                                   title="Add to compare"><i
+                                            class="ti-control-shuffle"></i><span>Add to compare</span></a>
                             </li>
                             <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left"
-                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                                   title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /grid_item -->
