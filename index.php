@@ -228,7 +228,7 @@
 
         <div class="container margin_60_35">
             <div class="main_title">
-                <h2>Melhor avaliados</h2>
+                <h2>Os melhores</h2>
                 <span>Fornecedores</span>
                 <p>Os fornecedores mais bem avaliados do portal GPS</p>
             </div>

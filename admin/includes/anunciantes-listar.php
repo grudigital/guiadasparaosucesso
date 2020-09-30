@@ -3,9 +3,8 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 50%">Titulo</th>
-                <th style="width: 23%">Categoria</th>
-                <th style="width: 15%"></th>
+                <th style="width: 70%">Titulo</th>
+                <th style="width: 18%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
@@ -22,13 +21,13 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>$row[titulo]</td>";
-                echo "<td>$row[categoria]</td>";
                 if($row['status'] == 1){
                     echo "<td><a href='functions/anunciantes_status1.php?id=$row[id]'><button type='button' class='btn btn-success'>Liberado</button></a></td>";
                 }
                 else {
                     echo "<td><a href='functions/anunciantes_status2.php?id=$row[id]'><button type='button' class='btn btn-danger'>Bloqueado</button></a></td>";
                 }
+                echo "<td><a href='anunciantes_logotipo.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Logotipo</button></a></td>";
                 echo "<td><a href='anunciantes_imagem.php?id=$row[id]'><button type='button' class='btn btn-primary'>Imagem</button></a></td>";
                 echo "<td><a href='anunciantes_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
                 echo "<td><a href='anunciantes_video.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Vídeo</button></a></td>";

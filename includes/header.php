@@ -1,5 +1,5 @@
 <header class="version_1">
-    <div class="layer"></div><!-- Mobile menu overlay mask -->
+    <div class="layer"></div>
     <div class="main_header">
         <div class="container">
             <div class="row small-gutters">
@@ -16,7 +16,6 @@
                             </div>
                         </div>
                     </a>
-                    <!-- Mobile menu button -->
                     <div class="main-menu">
                         <div id="header_menu">
                             <a href="index.php"><img src="img/logo_black.svg" alt="" width="100" height="35"></a>
@@ -30,36 +29,35 @@
                                 <a href="quem-somos.php">Quem somos</a>
                             </li>
                             <li>
-                            <a href="produtos.php">Produtos</a>
+                                <a href="produtos.php">Loja</a>
                             </li>
-                            <li>
-                                <a href="faca-parte.php">Faça parte</a>
-                            </li>
+
                             <li>
                                 <a href="contato.php">Contato</a>
                             </li>
+                            <div style="background-color:#fff; float: right; width:110px; text-align: center; height: 35px; margin-top: 17px; margin-right: 100px; padding-top: 6px; color:#653C7D; border-radius: 5px">
+                                <li>
+                                    <a style="color:#653C7D;text-align: center; text-transform: uppercase; font-weight: bold"
+                                       href="faca-parte.php">Faça parte</a>
+                                </li>
+                            </div>
                         </ul>
                     </div>
-                    <!--/main-menu -->
                 </nav>
-<?php
-require("admin/connections/conn.php");
-$sql = "select id, telefone,email,instagram,facebook,telegram,youtube FROM informacoes where id = 1";
-$result = mysqli_query($conn, $sql);
-
-while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div class='col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right'>";
-                    echo "<a target='_blank' class='phone_top' href='https://api.whatsapp.com/send?phone=5511$row[telefone]'><strong><span>Precisa de ajuda?</span>$row[telefone]</strong></a>";
+                <?php
+                require("admin/connections/conn.php");
+                $sql = "select id, telefone,email,instagram,facebook,telegram,youtube FROM informacoes where id = 1";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<div class='col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right'>";
+                    echo "<a target='_blank' class='phone_top' href='mailto:$row[email]'><strong><span>Precisa de ajuda?</span>$row[email]</strong></a>";
                     echo "</div>";
-}
-mysqli_close($conn);
-?>
+                }
+                mysqli_close($conn);
+                ?>
             </div>
-            <!-- /row -->
         </div>
     </div>
-    <!-- /main_header -->
-
     <div class="main_nav Sticky">
         <div class="container">
             <div class="row small-gutters">
@@ -94,15 +92,15 @@ mysqli_close($conn);
                 </div>
                 <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
                     <div class="custom-search-input">
-                        <input type="text" placeholder="Busque especialistas para seu evento">
+                        <form method="POST" action="pesquisar.php">
+                        <input type="text" name="pesquisar" placeholder="Busque por profissional ou categoria">
                         <button type="submit"><i class="header-icon_search_custom"></i></button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-2 col-md-3">
                     <ul style="margin-left:-210px;" class="top_tools">
-
-
-                        <li >
+                        <li>
                             <div class="dropdown dropdown-access">
                                 <a href="conta.php" class="access_link"><span>Conta</span></a>
                                 <div style="margin-left: -170px" class="dropdown-menu">
@@ -118,20 +116,15 @@ mysqli_close($conn);
                                     </ul>
                                 </div>
                             </div>
-                            <!-- /dropdown-access-->
                         </li>
 
                     </ul>
                 </div>
             </div>
-            <!-- /row -->
         </div>
         <div class="search_mob_wp">
             <input type="text" class="form-control" placeholder="Search over 10.000 products">
             <input type="submit" class="btn_1 full-width" value="Search">
         </div>
-        <!-- /search_mobile -->
     </div>
-    <!-- /main_nav -->
 </header>
-<!-- /header -->

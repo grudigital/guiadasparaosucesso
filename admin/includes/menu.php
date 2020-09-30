@@ -27,6 +27,9 @@
                     <a href="categorias.php" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Categorias</span></a>
                 </li>
                 <li>
+                    <a href="planos.php" class="waves-effect"><i class="mdi mdi-star"></i><span>Planos</span></a>
+                </li>
+                <li>
                     <a href="banners.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Banners</span></a>
                 </li>
                 <li>

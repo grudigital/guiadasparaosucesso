@@ -60,29 +60,49 @@
                 }
                 ?>
 
+
+
+
+
+
+            </div>
+
+        </div>
+
+        <div class="container margin_60_35">
+            <div class="main_title">
+                <h2>Planos GPS</h2>
+                <span>Planos</span>
+                <p>Confira nossos produtos oficiais</p>
+            </div>
+            <div class="owl-carousel owl-theme products_carousel">
+
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "select * FROM blocos where id = 8";
+                $sql = "select id, titulo,valor,resumo,descricao,botao,imagem,status FROM planos where status = 1 ";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
 
-                    echo "<div style='margin-top:25px; margin-bottom:25px' class='row justify-content-between align-items-center content_general_row'>";
-                    echo "<div class='col-lg-5 text-left'>";
-                    echo "<figure><img src='admin/uploads/blocos/$row[imagem]' data-src='admin/uploads/blocos/$row[imagem]' alt='' class='img-fluid lazy' width='350' height='268'></figure>";
+                    echo "<div class='item'>";
+                    echo "<div class='grid_item'>";
+                    echo "<figure>";
+                    echo "<a href='planos_interna.php?id=$row[id]'>";
+                    echo "<img class='owl-lazy' src='admin/uploads/planos/$row[imagem]'
+                                     data-src='admin/uploads/planos/$row[imagem]' alt=''>";
+                    echo "</a>";
+                    echo "</figure>";
+                    echo "<a href='planos_interna.php?id=$row[id]'>";
+                    echo "<h3>$row[titulo]</h3>";
+                    echo "</a>";
+                    echo "<div class='price_box'>";
+                    echo "<span class='new_price'>$row[valor]</span>";
                     echo "</div>";
-                    echo "<div class='col-lg-6'>";
-                    echo "<h2>$row[titulo]</h2>";
-                    echo "<p class='lead'>$row[resumo]</p>";
-                    echo "<p>$row[texto]</p>";
                     echo "</div>";
                     echo "</div>";
 
                 }
                 ?>
-
-
             </div>
-
         </div>
 
     </main>
