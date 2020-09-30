@@ -93,7 +93,7 @@
                 <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
                     <div class="custom-search-input">
                         <form method="POST" action="pesquisar.php">
-                        <input type="text" name="pesquisar" placeholder="Busque por profissional ou categoria">
+                        <input type="text" name="pesquisar" placeholder="Busque por profissional ou categoria para seu evento">
                         <button type="submit"><i class="header-icon_search_custom"></i></button>
                         </form>
                     </div>

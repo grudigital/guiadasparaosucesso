@@ -3,8 +3,9 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 70%">Titulo</th>
+                <th style="width: 68%">Titulo</th>
                 <th style="width: 18%"></th>
+                <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
@@ -31,6 +32,7 @@
                 echo "<td><a href='anunciantes_imagem.php?id=$row[id]'><button type='button' class='btn btn-primary'>Imagem</button></a></td>";
                 echo "<td><a href='anunciantes_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
                 echo "<td><a href='anunciantes_video.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Vídeo</button></a></td>";
+                echo "<td><a href='anunciantes_fotos.php?id=$row[id]'><button type='button' class='btn btn-dark'>Imagens</button></a></td>";
                 echo "<td><a href='anunciantes_comentarios.php?id=$row[id]'><button type='button' class='btn btn-info'>Comentários</button></a></td>";
                 echo "<td><a href='anunciantes_orcamentos.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Orçamentos</button></a></td>";
                 echo "<td><a href='functions/anunciantes_excluir.php?id=$row[id]'><button type='button' class='btn btn-danger'>Deletar</button></a></td>";

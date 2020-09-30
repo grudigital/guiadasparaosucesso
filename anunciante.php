@@ -114,6 +114,35 @@
                 </div>
             </div>
         </div>
+
+        <div class="container margin_60_35">
+           <div class="owl-carousel owl-theme products_carousel">
+
+
+                <?php
+                require("admin/connections/conn.php");
+                $pegaid = (int)$_GET['id'];
+                $sql = "select id, anunciante, imagem from anunciantes_fotos where anunciante = '$pegaid' ";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<div class='item'>";
+                    echo "<div class='grid_item'>";
+                    echo "<figure>";
+                    echo "<a target='_blank' href='admin/uploads/anunciantes_fotos/$row[imagem]'>";
+                    echo "<img style='height:200px' class='owl-lazy' src='admin/uploads/anunciantes_fotos/$row[imagem]' data-src='admin/uploads/anunciantes_fotos/$row[imagem]' alt=''>";
+                    echo "</a>";
+                    echo "</figure>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
+
+
+            </div>
+        </div>
+
+
+
         <form action="functions/orcamento_adicionar.php" enctype="multipart/form-data" method="post">
 
             <?php
