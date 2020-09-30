@@ -52,12 +52,48 @@
 
                     $sql = "select a.id aid, a.titulo atitulo,a.categoria acategoria,a.logotipo alogotipo, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
                     $result = mysqli_query($conn, $sql);
+
+                    $sqlcontagemavaliacoes = "select * from anunciantes_comentarios where anunciante = '$pegaid'";
+                    $executacontagemavaliacoes = mysqli_query($conn, $sqlcontagemavaliacoes);
+                    $resultcontagemavaliacoes = mysqli_num_rows($executacontagemavaliacoes);
+
+                    $resultado = mysqli_query($conn, "SELECT AVG(estrelas) FROM anunciantes_comentarios where anunciante = '$pegaid' group by anunciante");
+                    $linhas = mysqli_num_rows($resultado);
+
                     while ($row = mysqli_fetch_assoc($result)) {
 
                         echo "<div class='prod_info'>";
                         echo "<h1>$row[atitulo]</h1>";
-                        echo "<span style='margin-bottom: 30px' class='rating'><i class='icon-star voted'></i><i class='icon-star voted'></i><i
-                                    class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star'></i><em>4 avaliacoes</em></span>";
+
+                        //sistema dinâmico de calculo de estrelas em avaliações
+
+
+                        while($linhas = mysqli_fetch_array($resultado)){
+
+                            if($linhas['AVG(estrelas)'] <= '1.0000'){
+                                echo "<img style='height:18px' src='img/0estrelas.png'>";
+                            }
+                            else if($linhas['AVG(estrelas)'] >= '1.0001' && $linhas['AVG(estrelas)'] <= '1.9999'){
+                                echo "<img style='height:18px' src='img/1estrela0.png'>";
+                            }
+                            else if($linhas['AVG(estrelas)'] >= '2.0000' && $linhas['AVG(estrelas)'] <= '2.9999'){
+                                echo "<img style='height:18px' src='img/2estrelas.png'>";
+                            }
+                            else if($linhas['AVG(estrelas)'] >= '3.0000' && $linhas['AVG(estrelas)'] <= '3.9999'){
+                                echo "<img style='height:18px' src='img/3estrelas.png'>";
+                            }
+                            else if($linhas['AVG(estrelas)'] >= '4.0000' && $linhas['AVG(estrelas)'] <= '4.9998'){
+                                echo "<img style='height:18px' src='img/4estrelas.png'>";
+                            }
+                            else if($linhas['AVG(estrelas)'] >= '4.9999' ){
+                                echo "<img style='height:18px' src='img/5estrelas.png'>";
+                            }
+
+                        }
+
+                        echo "<span style='margin-bottom: 30px;  margin-left:10px' class='rating'><em>$resultcontagemavaliacoes avaliações</em></span>";
+
+                        //sistema dinâmico de calculo de estrelas em avaliações
 
                         if ($row['alogotipo'] == '') {
 
@@ -269,7 +305,6 @@
                     echo "<img class='owl-lazy' src='admin/uploads/anunciantes/$row[aimagem]' data-src='admin/uploads/anunciantes/$row[aimagem]' alt=''>";
                     echo "</a>";
                     echo "</figure>";
-                    echo "<div class='rating'><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star'></i></div>";
                     echo "<a href='anunciante.php?id=$row[aid]'>";
                     echo "<h3>$row[atitulo]</h3>";
                     echo "</a>";

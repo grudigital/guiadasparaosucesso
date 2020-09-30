@@ -177,24 +177,49 @@
 
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "select * FROM anunciantes order by id desc limit 8";
+                $sql = "SELECT a.id aid, a.imagem aimagem, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante group by a.id";
                 $result = mysqli_query($conn, $sql);
+
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     echo "<div class='col-6 col-md-4 col-xl-3'>";
                     echo "<div class='grid_item'>";
                     echo "<figure>";
-                    echo "<a href='anunciante.php?id=$row[id]'>";
-                    echo "<img class='img-fluid lazy' src='admin/uploads/anunciantes/$row[imagem]'
-                                     data-src='admin/uploads/anunciantes/$row[imagem]' alt='$row[imagem]'>";
+                    echo "<a href='anunciante.php?id=$row[aid]'>";
+                    echo "<img class='img-fluid lazy' src='admin/uploads/anunciantes/$row[aimagem]'
+                                     data-src='admin/uploads/anunciantes/$row[aimagem]' alt='$row[aimagem]'>";
 
                     echo "</a>";
                     echo "</figure>";
-                    echo "<div class='rating'><i class='icon-star voted'></i><i class='icon-star voted'></i><i
-                                    class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star'></i>";
-                    echo "</div>";
-                    echo "<a href='anunciante.php?id=$row[id]'>";
-                    echo "<h3>$row[titulo]</h3>";
+
+                        if($row['AVG(estrelas)'] <= '1.0000'){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/0estrelas.png'>";
+                        }
+                        else if($row['AVG(estrelas)'] >= '1.0001' && $row['AVG(estrelas)'] <= '1.9999'){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/1estrela.png'>";
+                        }
+                        else if($row['AVG(estrelas)'] >= '2.0000' && $row['AVG(estrelas)'] <= '2.9999'){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/2estrelas.png'>";
+                        }
+                        else if($row['AVG(estrelas)'] >= '3.0000' && $row['AVG(estrelas)'] <= '3.9999'){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/3estrelas.png'>";
+                        }
+                        else if($row['AVG(estrelas)'] >= '4.0000' && $row['AVG(estrelas)'] <= '4.9998'){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/4estrelas.png'>";
+                        }
+                        else if($row['AVG(estrelas)'] >= '4.9999' ){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/5estrelas.png'>";
+                        }
+                        else if($row['AVG(estrelas)'] == null ){
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/0estrelas.png'>";
+                        }
+
+                        else{
+                            echo "<img style='height:18px; margin-bottom: 5px' src='img/0estrelas.png'>";
+                        }
+
+                    echo "<a href='anunciante.php?id=$row[aid]'>";
+                    echo "<br/><h3>$row[atitulo]</h3>";
                     echo "</a>";
                     echo "</div>";
                     echo "</div>";
@@ -236,24 +261,49 @@
 
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "select * FROM anunciantes order by id asc limit 10";
+                $sql = "SELECT a.id aid, a.imagem aimagem, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante group by a.id";
                 $result = mysqli_query($conn, $sql);
+
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     echo "<div class='item'>";
                     echo "<div class='grid_item'>";
                     echo "<figure>";
-                    echo "<a href='anunciante.php?id=$row[id]'>";
-                    echo "<img class='owl-lazy' src='admin/uploads/anunciantes/$row[imagem]'
-                                     data-src='admin/uploads/anunciantes/$row[imagem]' alt=''>";
+                    echo "<a href='anunciante.php?id=$row[aid]'>";
+                    echo "<img class='owl-lazy' src='admin/uploads/anunciantes/$row[aimagem]'
+                                     data-src='admin/uploads/anunciantes/$row[aimagem]' alt=''>";
                     echo "</a>";
                     echo "</figure>";
-                    echo "<div class='rating'><i class='icon-star voted'></i><i class='icon-star voted'></i><i
-                                    class='icon-star voted'></i><i class='icon-star voted'></i><i
-                                    class='icon-star'></i>";
+                    echo "<div class='rating'>";
+                    if($row['AVG(estrelas)'] <= '1.0000'){
+                        echo "<img style='width:40%; margin-left:30%;margin-bottom: 5px' src='img/0estrelas.png'>";
+                    }
+                    else if($row['AVG(estrelas)'] >= '1.0001' && $row['AVG(estrelas)'] <= '1.9999'){
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/1estrela.png'>";
+                    }
+                    else if($row['AVG(estrelas)'] >= '2.0000' && $row['AVG(estrelas)'] <= '2.9999'){
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/2estrelas.png'>";
+                    }
+                    else if($row['AVG(estrelas)'] >= '3.0000' && $row['AVG(estrelas)'] <= '3.9999'){
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/3estrelas.png'>";
+                    }
+                    else if($row['AVG(estrelas)'] >= '4.0000' && $row['AVG(estrelas)'] <= '4.9998'){
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/4estrelas.png'>";
+                    }
+                    else if($row['AVG(estrelas)'] >= '4.9999' ){
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/5estrelas.png'>";
+                    }
+                    else if($row['AVG(estrelas)'] == null ){
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/0estrelas.png'>";
+                    }
+
+                    else{
+                        echo "<img style='width:40%; margin-left:30%; margin-bottom: 5px' src='img/0estrelas.png'>";
+                    }
+
                     echo "</div>";
-                    echo "<a href='anunciante.php?id=$row[id]'>";
-                    echo "<h3>$row[titulo]</h3>";
+                    echo "<a href='anunciante.php?id=$row[aid]'>";
+                    echo "<h3>$row[atitulo]</h3>";
                     echo "</a>";
                     echo "</div>";
                     echo "</div>";
