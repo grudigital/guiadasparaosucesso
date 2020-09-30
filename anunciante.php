@@ -71,54 +71,7 @@
                         echo "<p><strong><img width='25px' src='img/icone-endereco2.png'></strong><span style='color:#444;margin-left:8px;text-decoration: none'>$row[alogradouro], $row[anumero] - $row[abairro] - $row[acidade]/$row[aestado]</span> </p>";
 
 
-                        echo "<div class='prod_options'>";
-                        echo "<hr>";
-                        echo "<p style='margin-bottom: 30px; font-size:20px;'>Orçamento rápido</p>";
 
-                        echo "<div class='row'>";
-                        echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Nome</strong></label>";
-                        echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                        echo "<div class='form-group'>";
-                        echo "<input class='form-control' type='text' name='telefone' placeholder='Telefone *'>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-
-                        echo "<div class='row'>";
-                        echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>E-mail</strong></label>";
-                        echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                        echo "<div class='form-group'>";
-                        echo "<input class='form-control' type='text' name='email' placeholder='E-mail *'>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-
-                        echo "<div class='row'>";
-                        echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Telefone</strong></label>";
-                        echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                        echo "<div class='form-group'>";
-                        echo "<input class='form-control' type='text' name='telefone' placeholder='Telefone *'>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-
-                        echo "<div class='row'>";
-                        echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Mensagem</strong></label>";
-                        echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                        echo "<div class='form-group'>";
-                        echo "<textarea class='form-control' name='mensagem'></textarea>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-
-                        echo "</div>";
-
-                        echo "<div class='row'>";;
-                        echo "<div class='col-lg-12 col-md-12'>";
-                        echo "<div class='btn_add_to_cart'><a href='#0' class='btn_1'>Solicitar contato</a></div>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
 
                     }
                     ?>
@@ -126,9 +79,66 @@
 
                 </div>
             </div>
-            <!-- /row -->
         </div>
-        <!-- /container -->
+
+        <?php
+                    require("admin/connections/conn.php");
+                    $pegaid = (int)$_GET['id'];
+
+                    $sql = "select a.id aid, a.titulo atitulo,a.categoria acategoria,a.logotipo alogotipo, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+        echo "<div class='prod_options'>";
+            echo "<p style='margin-bottom: 30px; font-size:20px;'>Orçamento rápido</p>";
+
+            echo "<div class='row'>";
+                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Nome</strong></label>";
+                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
+                    echo "<div class='form-group'>";
+                        echo "<input class='form-control' type='text' name='telefone' placeholder='Telefone *'>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+
+            echo "<div class='row'>";
+                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>E-mail</strong></label>";
+                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
+                    echo "<div class='form-group'>";
+                        echo "<input class='form-control' type='text' name='email' placeholder='E-mail *'>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+
+            echo "<div class='row'>";
+                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Telefone</strong></label>";
+                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
+                    echo "<div class='form-group'>";
+                        echo "<input class='form-control' type='text' name='telefone' placeholder='Telefone *'>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+
+            echo "<div class='row'>";
+                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Mensagem</strong></label>";
+                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
+                    echo "<div class='form-group'>";
+                        echo "<textarea class='form-control' name='mensagem'></textarea>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+
+            echo "</div>";
+
+        echo "<div class='row'>";;
+            echo "<div class='col-lg-12 col-md-12'>";
+                echo "<div class='btn_add_to_cart'><a href='#0' class='btn_1'>Solicitar contato</a></div>";
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
+
+                    }
+        ?>
 
         <div class="tabs_product">
             <div class="container">
@@ -217,16 +227,12 @@
                                         echo "</div>";
                                     }
                                     ?>
-
                                 </div>
-
-                                <p class="text-right"><a href="#" class="btn_1">Fazer avaliação</a></p>
+                                <p class="text-left"><a href="#" class="btn_1">Fazer avaliação</a></p>
                             </div>
-                            <!-- /card-body -->
                         </div>
                     </div>
                 </div>
-                <!-- /tab-content -->
             </div>
         </div>
 

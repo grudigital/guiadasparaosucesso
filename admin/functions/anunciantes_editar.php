@@ -10,6 +10,7 @@ $cidade = $_REQUEST['cidade'];
 $estado = $_REQUEST['estado'];
 $inicioplano = $_REQUEST['inicioplano'];
 $fimplano = $_REQUEST['fimplano'];
+$plano = $_REQUEST['plano'];
 $whatsapp = $_REQUEST['whatsapp'];
 $email = $_REQUEST['email'];
 $facebook = $_REQUEST['facebook'];
@@ -21,7 +22,7 @@ $video = $_REQUEST['video'];
 $status = $_REQUEST['status'];
 
 require("../connections/conn.php");
-$sql = "update anunciantes set titulo='$titulo',categoria='$categoria',telefone='$telefone',logradouro='$logradouro',numero='$numero',bairro='$bairro',cidade='$cidade',estado='$estado',inicioplano='$inicioplano',fimplano='$fimplano',whatsapp='$whatsapp',email='$email',facebook='$facebook',instagram='$instagram',descricao='$descricao',senha='$senha',imagem='$imagem',video='$video',status='$status' where id=$id";
+$sql = "update anunciantes set titulo='$titulo',categoria='$categoria',telefone='$telefone',logradouro='$logradouro',numero='$numero',bairro='$bairro',cidade='$cidade',estado='$estado',inicioplano='$inicioplano',fimplano='$fimplano',plano='$plano',whatsapp='$whatsapp',email='$email',facebook='$facebook',instagram='$instagram',descricao='$descricao',senha='$senha',imagem='$imagem',video='$video',status='$status' where id=$id";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));

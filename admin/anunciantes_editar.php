@@ -57,6 +57,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                     $pegaid = (int)$_GET['id'];
                                     $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
+
+                                    $sqlplanoselecionado = "select a.id aid, a.plano aplano, p.id pid, p.titulo ptitulo from anunciantes as a inner join planos as p on a.plano = p.id where a.id = '$pegaid'";
+                                    $resultplanoselecionado = mysqli_query($conn,$sqlplanoselecionado);
+
+                                    $sqlplanos = "select id, titulo from planos";
+                                    $resultplanos = mysqli_query($conn, $sqlplanos);
+
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
                                                    id='example-text-input'>";
@@ -116,6 +123,27 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='estado' type='text' value='$row[estado]'
                                                    id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Plano</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<select name='plano' class='form-control'>";
+
+                                        //listar opcao selecionada
+                                        while ($retornoplanoselecionado = mysqli_fetch_array($resultplanoselecionado)){
+                                            echo "<option style='background-color: #263238; color: #fff' selected value='$retornoplanoselecionado[pid]'>$retornoplanoselecionado[ptitulo]</option>";
+                                        }
+                                        //listar opcao selecionada
+
+                                        //listar todas as opcoes
+                                        while ($retornoplanos = mysqli_fetch_array($resultplanos)){
+                                            echo "<option value='$retornoplanos[id]'>$retornoplanos[titulo]</option>";
+                                        }
+                                        //listar todas as opcoes
+
+                                        echo "</select>";
                                         echo "</div>";
                                         echo "</div>";
 

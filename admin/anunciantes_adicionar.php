@@ -139,6 +139,22 @@ if ($_SESSION['usuarioNome'] == '') {
                                     </div>
 
                                     <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Plano</label>
+                                        <div class="col-sm-10">
+                                            <select name="plano" class="form-control">
+                                                <?php
+                                                require("connections/conn.php");
+                                                $sql = "select * FROM planos";
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<option value='$row[id]'>$row[titulo]</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Whatsapp</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="whatsapp" type="text" placeholder="Whatsapp"
