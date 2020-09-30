@@ -78,6 +78,8 @@
                 </div>
             </div>
         </div>
+
+
         <form action="functions/orcamento_adicionar.php" enctype="multipart/form-data" method="post">
 
             <?php
@@ -89,6 +91,8 @@
             while ($row = mysqli_fetch_assoc($result)) {
 
                 echo "<div class='prod_options'>";
+
+
                 echo "<p style='margin-bottom: 30px; font-size:20px;'>Orçamento rápido</p>";
 
                 echo "<input type='hidden' name='anunciante' value='$pegaid'>";
@@ -230,57 +234,52 @@
                                         }
                                         ?>
                                     </div>
-
-                                    <div class="col-lg-5 col-md-6">
-                                        <div class="btn_add_to_cart"><a href="#0" class="btn_1 full-width">fazer
-                                                avaliação</a></div>
-                                    </div>
+                                    <div style='color:#155724; padding-top: 7px; border-radius: 5px; margin-bottom: 30px; padding-left:10px; height:40px; background-color:#d4edda; font-size:18px; border-bolor:#c3e6cb  ' class='alert alert-success' role='alert'>Comentário em processo de aprovação. </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
 
-        <div class="container margin_60_35">
-            <div class="main_title">
-                <h2>Ainda nesta categoria</h2>
-                <span>Fornecedores</span>
-                <p>Veja o perfil de outros fornecedores para esta categoria.</p>
+            <div class="container margin_60_35">
+                <div class="main_title">
+                    <h2>Ainda nesta categoria</h2>
+                    <span>Fornecedores</span>
+                    <p>Veja o perfil de outros fornecedores para esta categoria.</p>
+                </div>
+
+
+                <div class="owl-carousel owl-theme products_carousel">
+
+
+                    <?php
+                    require("admin/connections/conn.php");
+                    $pegaid = (int)$_GET['id'];
+
+                    $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.imagem aimagem, ac.id acid, ac.categoria accategoria, ac.imagem accimagem from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id ";
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        echo "<div class='item'>";
+                        echo "<div class='grid_item'>";
+                        echo "<figure>";
+                        echo "<a href='anunciante.php?id=$row[aid]'>";
+                        echo "<img class='owl-lazy' src='admin/uploads/anunciantes/$row[aimagem]' data-src='admin/uploads/anunciantes/$row[aimagem]' alt=''>";
+                        echo "</a>";
+                        echo "</figure>";
+                        echo "<div class='rating'><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star'></i></div>";
+                        echo "<a href='anunciante.php?id=$row[aid]'>";
+                        echo "<h3>$row[atitulo]</h3>";
+                        echo "</a>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                    ?>
+
+
+                </div>
             </div>
-
-
-            <div class="owl-carousel owl-theme products_carousel">
-
-
-                <?php
-                require("admin/connections/conn.php");
-                $pegaid = (int)$_GET['id'];
-
-                $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.imagem aimagem, ac.id acid, ac.categoria accategoria, ac.imagem accimagem from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id ";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-
-                    echo "<div class='item'>";
-                    echo "<div class='grid_item'>";
-                    echo "<figure>";
-                    echo "<a href='anunciante.php?id=$row[aid]'>";
-                    echo "<img class='owl-lazy' src='admin/uploads/anunciantes/$row[aimagem]' data-src='admin/uploads/anunciantes/$row[aimagem]' alt=''>";
-                    echo "</a>";
-                    echo "</figure>";
-                    echo "<div class='rating'><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star voted'></i><i class='icon-star'></i></div>";
-                    echo "<a href='anunciante.php?id=$row[aid]'>";
-                    echo "<h3>$row[atitulo]</h3>";
-                    echo "</a>";
-                    echo "</div>";
-                    echo "</div>";
-                }
-                ?>
-
-
-            </div>
-        </div>
     </main>
     <?php include 'includes/footer.php'; ?>
 </div>
@@ -289,119 +288,80 @@
 <div class="top_panel">
     <div class="container header_panel">
         <a href="#0" class="btn_close_top_panel"><i class="ti-close"></i></a>
-        <p style='margin-bottom: -20px; margin-left:15px; font-size:20px;'>Avaliar fornecedor</p>
-        <hr>
+        <label>1 product added to cart</label>
     </div>
-    <form action="functions/comentarios_adicionar.php" enctype="multipart/form-data" method="post">
-
-        <div class="container related">
-            <?php
-            require("admin/connections/conn.php");
-            $pegaid = (int)$_GET['id'];
-
-            $sql = "select a.id aid, a.titulo atitulo,a.categoria acategoria,a.logotipo alogotipo, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                echo "<div class='prod_options'>";
-                echo "<input type='hidden' name='anunciante' value='$pegaid'>";
-
-                echo "<div class='container'>";
-                echo "<div class='row'>";
-                echo "<div class='col-sm'>";
-                echo "<div class='row'>";
-                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Nome</strong></label>";
-                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                echo "<div class='form-group'>";
-                echo "<input class='form-control' type='text' name='nome' placeholder='Nome *'>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='col-sm'>";
-                echo "<div class='row'>";
-                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>E-mail</strong></label>";
-                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                echo "<div class='form-group'>";
-                echo "<input class='form-control' type='text' name='email' placeholder='E-mail *'>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='col-sm'>";
-                echo "<div class='row'>";
-                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Telefone</strong></label>";
-                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                echo "<div class='form-group'>";
-                echo "<input class='form-control' type='text' name='telefone' placeholder='Telefone *'>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-
-                echo "<div class='container'>";
-                echo "<div class='row'>";
-                echo "<div class='col-4'>";
-                echo "<div class='row'>";
-                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>CPF</strong></label>";
-                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                echo "<div class='form-group'>";
-                echo "<input class='form-control' type='text' name='cpf' placeholder='CPF *'>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-
-                echo "<div class='col-4'>";
-                echo "<div class='row'>";
-                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Estrelas</strong></label>";
-                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                echo "<div class='form-group'>";
-                echo "<select class='form-control' name='estrelas'>";
-                echo "<option value='selecione'>Escolha uma pontuação</option>";
-                echo "<option value='5'>5</option>";
-                echo "<option value='4'>4</option>";
-                echo "<option value='3'>3</option>";
-                echo "<option value='2'>2</option>";
-                echo "<option value='1'>1</option>";
-                echo "<option value='0'>0</option>";
-                echo "</select>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='col-4'>";
-                echo "<div class='row'>";
-                echo "<label class='col-xl-3 col-lg-3  col-md-3 col-3'><strong>Mensagem</strong></label>";
-                echo "<div class='col-xl-9 col-lg-9 col-md-9 col-9'>";
-                echo "<div class='form-group'>";
-                echo "<input class='form-control' type='text' name='comentario' placeholder='Mensagem *'>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "<input type='hidden' value='2' name='status'>";
-                echo "</div>";
-                echo "<div class='row'>";;
-                echo "<div class='col-lg-12 col-md-12'>";
-                echo "<div class='btn_add_to_cart'><input class='btn_1 full-width' type='submit' value='Enviar opiniao'></div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-
-            }
-            ?>
+    <div class="item">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="item_panel">
+                        <figure>
+                            <img src="img/products/product_placeholder_square_small.jpg"
+                                 data-src="img/products/shoes/1.jpg" class="lazy" alt="">
+                        </figure>
+                        <h4>1x Armor Air X Fearr</h4>
+                        <div class="price_panel"><span class="new_price">$148.00</span><span
+                                class="percentage">-20%</span> <span class="old_price">$160.00</span></div>
+                    </div>
+                </div>
+                <div class="col-md-5 btn_panel">
+                    <a href="cart.html" class="btn_1 outline">View cart</a> <a href="checkout.html" class="btn_1">Checkout</a>
+                </div>
+            </div>
         </div>
-    </form>
-</div>
-<!-- /related -->
+    </div>
+    <!-- /item -->
+    <div class="container related">
+        <h4>Who bought this product also bought</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="item_panel">
+                    <a href="#0">
+                        <figure>
+                            <img src="img/products/product_placeholder_square_small.jpg"
+                                 data-src="img/products/shoes/2.jpg" alt="" class="lazy">
+                        </figure>
+                    </a>
+                    <a href="#0">
+                        <h5>Armor Okwahn II</h5>
+                    </a>
+                    <div class="price_panel"><span class="new_price">$90.00</span></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="item_panel">
+                    <a href="#0">
+                        <figure>
+                            <img src="img/products/product_placeholder_square_small.jpg"
+                                 data-src="img/products/shoes/3.jpg" alt="" class="lazy">
+                        </figure>
+                    </a>
+                    <a href="#0">
+                        <h5>Armor Air Wildwood ACG</h5>
+                    </a>
+                    <div class="price_panel"><span class="new_price">$75.00</span><span class="percentage">-20%</span>
+                        <span class="old_price">$155.00</span></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="item_panel">
+                    <a href="#0">
+                        <figure>
+                            <img src="img/products/product_placeholder_square_small.jpg"
+                                 data-src="img/products/shoes/4.jpg" alt="" class="lazy">
+                        </figure>
+                    </a>
+                    <a href="#0">
+                        <h5>Armor ACG React Terra</h5>
+                    </a>
+                    <div class="price_panel"><span class="new_price">$110.00</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /related -->
 </div>
 <!-- /add_cart_panel -->
-
 
 <!-- Size modal -->
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="size-modal" id="size-modal" aria-hidden="true">
