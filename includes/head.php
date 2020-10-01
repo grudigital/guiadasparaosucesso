@@ -42,4 +42,7 @@
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
 
+    <link href="css/lightbox.css" rel="stylesheet" />
+
+
 </head>

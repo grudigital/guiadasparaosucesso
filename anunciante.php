@@ -115,6 +115,7 @@
             </div>
         </div>
 
+
         <div class="container margin_60_35">
            <div class="owl-carousel owl-theme products_carousel">
 
@@ -128,7 +129,7 @@
                     echo "<div class='item'>";
                     echo "<div class='grid_item'>";
                     echo "<figure>";
-                    echo "<a target='_blank' href='admin/uploads/anunciantes_fotos/$row[imagem]'>";
+                    echo "<a target='_blank' data-lightbox='image-1' href='admin/uploads/anunciantes_fotos/$row[imagem]'>";
                     echo "<img style='height:200px' class='owl-lazy' src='admin/uploads/anunciantes_fotos/$row[imagem]' data-src='admin/uploads/anunciantes_fotos/$row[imagem]' alt=''>";
                     echo "</a>";
                     echo "</figure>";
@@ -572,6 +573,8 @@
         additionalMarginTop: 90
     });
 </script>
+<script src="js/lightbox.js"></script>
+
 
 </body>
 </html>
