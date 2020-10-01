@@ -46,7 +46,7 @@
                 require("admin/connections/conn.php");
                 $pegaid = (int)$_GET['id'];
 
-                $sql = "select * FROM anunciantes where categoria = '$pegaid' ";
+                $sql = "select * FROM anunciantes where categoria = '$pegaid' and status = 1 ";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='col-6 col-md-4 col-xl-3'>";

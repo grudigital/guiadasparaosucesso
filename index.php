@@ -177,7 +177,7 @@
 
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "SELECT a.id aid, a.imagem aimagem, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante group by a.id";
+                $sql = "SELECT a.id aid, a.imagem aimagem, a.status astatus, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante where a.status = 1 group by a.id";
                 $result = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -261,7 +261,7 @@
 
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "SELECT a.id aid, a.imagem aimagem, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante group by a.id";
+                $sql = "SELECT a.id aid, a.imagem aimagem, a.status astatus, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante where a.status = 1 group by a.id";
                 $result = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($result)) {

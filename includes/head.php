@@ -38,6 +38,8 @@
     <link href="css/blog.css" rel="stylesheet">
     <link href="css/listing.css" rel="stylesheet">
     <link href="css/product_page.css" rel="stylesheet">
+    <link href="css/checkout.css" rel="stylesheet">
+    <link href="css/faq.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">

@@ -60,7 +60,7 @@
                 require("admin/connections/conn.php");
                 $pesquisar = $_POST['pesquisar'];
 
-                $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.logotipo alogotipo, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id where a.titulo LIKE '%$pesquisar%' or ac.categoria LIKE '%$pesquisar%'";
+                $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.logotipo alogotipo, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id where a.titulo LIKE '%$pesquisar%' and a.status = 1 or ac.categoria LIKE '%$pesquisar%' and a.status = 1";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='col-6 col-md-4 col-xl-3'>";

@@ -320,7 +320,7 @@
                     require("admin/connections/conn.php");
                     $pegaid = (int)$_GET['id'];
 
-                    $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.imagem aimagem, ac.id acid, ac.categoria accategoria, ac.imagem accimagem from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id ";
+                    $sql = "select a.id aid, a.titulo atitulo, a.status astatus, a.categoria acategoria, a.imagem aimagem, ac.id acid, ac.categoria accategoria, ac.imagem accimagem from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id where a.status = 1";
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) {
 
