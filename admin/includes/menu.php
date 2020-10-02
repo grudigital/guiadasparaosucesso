@@ -32,9 +32,9 @@
                 <li>
                     <a href="banners.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Banners</span></a>
                 </li>
-                <li>
-                    <a href="destaques.php" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Destaques</span></a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="destaques.php" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Destaques</span></a>-->
+<!--                </li>-->
                 <li>
                     <a href="contatos.php" class="waves-effect"><i class="mdi mdi-email-outline"></i><span>Contatos</span></a>
                 </li>

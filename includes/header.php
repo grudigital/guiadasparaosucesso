@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+if ($_SESSION['usuarioNome'] == '')
+?>
 <header class="version_1">
     <div class="layer"></div>
     <div class="main_header">
@@ -93,33 +97,51 @@
                 <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
                     <div class="custom-search-input">
                         <form method="POST" action="pesquisar.php">
-                        <input type="text" name="pesquisar" placeholder="Busque por profissional ou categoria para seu evento">
-                        <button type="submit"><i class="header-icon_search_custom"></i></button>
+                            <input type="text" name="pesquisar"
+                                   placeholder="Busque por profissional ou categoria para seu evento">
+                            <button type="submit"><i class="header-icon_search_custom"></i></button>
                         </form>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-2 col-md-3">
-                    <ul style="margin-left:-210px;" class="top_tools">
-                        <li>
-                            <div class="dropdown dropdown-access">
-                                <a href="conta.php" class="access_link"><span>Conta</span></a>
-                                <div style="margin-left: -170px" class="dropdown-menu">
-                                    <a href="login.php" class="btn_1">Entrar ou cadastrar</a>
-                                    <ul>
-                                        <li>
-                                            <a href="meus-anuncios.php"><i class="ti-package"></i>Meus anúncios</a>
-                                        </li>
-                                        <li>
-                                            <a href="perfil.php"><i class="ti-user"></i>Meu perfil</a>
-                                        </li>
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+                <?php
+                error_reporting(E_ERROR | E_WARNING | E_PARSE);
+                if ($_SESSION['usuarioId'] == '') {
+                    echo "<div class='col-xl-3 col-lg-2 col-md-3'>";
+                    echo "<ul style='margin-left:-210px;' class='top_tools'>";
+                    echo "<li>";
+                    echo "<div class='dropdown dropdown-access'>";
+                    echo "<a href='conta.php' class='access_link'><span>Conta</span></a>";
+                    echo "<div style='margin-left: -170px' class='dropdown-menu'>";
+                    echo "<a href='login.php' class='btn_1'>Entrar ou cadastrar</a>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</li>";
+                    echo "</ul>";
+                    echo "</div>";
+                } else {
+                    session_start();
+                    echo "<div class='col-xl-3 col-lg-2 col-md-3'>";
+                    echo "<ul style='margin-left:-210px;' class='top_tools'>";
 
-                    </ul>
-                </div>
+                    echo "<li>";
+                    echo "<div class='dropdown dropdown-access'>";
+                    echo "<a href='conta.php' class='access_link'><span>Conta</span></a>";
+
+                    echo "<div style='margin-left: -170px' class='dropdown-menu'>";
+                    echo "<a href='areasocio.php' style='background-color: #653C7D !important;; margin-bottom: 10px; color:#fff !important' class='btn_1'>Área do sócio</a>";
+                    echo "<a href='functions/sair.php' style='background-color: #B20000 !important; color:#fff !important' class='btn_1'>Sair</a>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</li>";
+                    echo "</ul>";
+                    echo "</div>";
+
+
+                }
+                ?>
+
+
             </div>
         </div>
         <div class="search_mob_wp">

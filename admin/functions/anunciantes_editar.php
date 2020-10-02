@@ -15,6 +15,7 @@ $whatsapp = $_REQUEST['whatsapp'];
 $email = $_REQUEST['email'];
 $facebook = $_REQUEST['facebook'];
 $instagram = $_REQUEST['instagram'];
+$linkedin = $_REQUEST['linkedin'];
 $descricao = $_REQUEST['descricao'];
 $senha = $_REQUEST['senha'];
 $imagem = $_REQUEST['imagem'];
@@ -22,7 +23,7 @@ $video = $_REQUEST['video'];
 $status = $_REQUEST['status'];
 
 require("../connections/conn.php");
-$sql = "update anunciantes set titulo='$titulo',categoria='$categoria',telefone='$telefone',logradouro='$logradouro',numero='$numero',bairro='$bairro',cidade='$cidade',estado='$estado',inicioplano='$inicioplano',fimplano='$fimplano',plano='$plano',whatsapp='$whatsapp',email='$email',facebook='$facebook',instagram='$instagram',descricao='$descricao',senha='$senha',imagem='$imagem',video='$video',status='$status' where id=$id";
+$sql = "update anunciantes set titulo='$titulo',categoria='$categoria',telefone='$telefone',logradouro='$logradouro',numero='$numero',bairro='$bairro',cidade='$cidade',estado='$estado',inicioplano='$inicioplano',fimplano='$fimplano',plano='$plano',whatsapp='$whatsapp',email='$email',facebook='$facebook',instagram='$instagram',linkedin='$linkedin',descricao='$descricao',senha='$senha',imagem='$imagem',video='$video',status='$status' where id=$id";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));

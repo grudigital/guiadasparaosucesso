@@ -55,7 +55,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
+                                    $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     $sqlplanoselecionado = "select a.id aid, a.plano aplano, p.id pid, p.titulo ptitulo from anunciantes as a inner join planos as p on a.plano = p.id where a.id = '$pegaid'";
@@ -179,6 +179,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Instagram</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='instagram' type='text' value='$row[instagram]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Linkedin</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='linkedin' type='text' value='$row[linkedin]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";

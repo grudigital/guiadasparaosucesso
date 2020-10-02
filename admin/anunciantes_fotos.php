@@ -56,38 +56,31 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <div class='container'>
                                             <div class='row'>
 
-                                        <?php
-                                        require("connections/conn.php");
-                                        $pegaid = (int)$_GET['id'];
-                                        echo "<input type='hidden' name='id' value='$pegaid'>";
-                                        echo "<input type='hidden' name='anunciante' value='$pegaid'>";
-                                        $sql = "select * FROM anunciantes_fotos where anunciante = '$pegaid'";
-                                        $result = mysqli_query($conn, $sql);
+                                                <?php
+                                                require("connections/conn.php");
+                                                $pegaid = (int)$_GET['id'];
+                                                echo "<input type='hidden' name='id' value='$pegaid'>";
+                                                echo "<input type='hidden' name='anunciante' value='$pegaid'>";
+                                                $sql = "select * FROM anunciantes_fotos where anunciante = '$pegaid'";
+                                                $result = mysqli_query($conn, $sql);
 
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            if ($row['imagem'] == '') {
-                                                echo "<img src='assets/images/imagem-cadastrada.png' class='img-fluid'>";
-                                                echo "<br/><br/>";
-                                            } else {
-
-
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    if ($row['imagem'] == '') {
+                                                        echo "<img src='assets/images/imagem-cadastrada.png' class='img-fluid'>";
+                                                        echo "<br/><br/>";
+                                                    } else {
 
 
+                                                        echo "<div style='margin-top:20px' class='col-4'>";
+                                                        echo "<img style='height:215px' src='uploads/anunciantes_fotos/$row[imagem]' class='img-fluid'>";
+                                                        echo "<a href='functions/anunciantes_imagens_excluir.php?id=$row[id]'><img style='width: 30px; margin-top: 10px' src='assets/images/delete.png'></a>";
+                                                        echo "</div>";
 
 
-                                                echo "<div style='margin-top:20px' class='col-4'>";
-                                                echo "<img style='height:215px' src='uploads/anunciantes_fotos/$row[imagem]' class='img-fluid'>";
-                                                echo "<a href='functions/anunciantes_imagens_excluir.php?id=$row[id]'><img style='width: 30px; margin-top: 10px' src='assets/images/delete.png'></a>";
-                                                echo "</div>";
-
-
-
-
-
-                                            }
-                                        }
-                                        mysqli_close($conn);
-                                        ?>
+                                                    }
+                                                }
+                                                mysqli_close($conn);
+                                                ?>
                                             </div>
                                         </div>
 
@@ -100,7 +93,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                         </div>
 
 
-                                        <div  class="form-group row">
+                                        <div class="form-group row">
                                             <div class="col-sm-12">
                                                 <button style="float: right" type='submit' class='btn btn-info'>
                                                     Adicionar

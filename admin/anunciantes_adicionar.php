@@ -187,6 +187,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                     </div>
 
                                     <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Linkedin</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="linkedin" type="text" placeholder="Linkedin"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Descrição</label>
                                         <div class="col-sm-10">
                                             <textarea placeholder="Descrição" name="descricao" class="form-control"></textarea>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if ($_SESSION['usuarioNome'] == '')
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <?php include 'includes/head.php'; ?>
@@ -50,7 +54,7 @@
                     require("admin/connections/conn.php");
                     $pegaid = (int)$_GET['id'];
 
-                    $sql = "select a.id aid, a.titulo atitulo,a.categoria acategoria,a.logotipo alogotipo, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
+                    $sql = "select a.id aid, a.titulo atitulo,a.linkedin alinkedin,a.categoria acategoria,a.logotipo alogotipo, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
                     $result = mysqli_query($conn, $sql);
 
                     $sqlcontagemavaliacoes = "select * from anunciantes_comentarios where anunciante = '$pegaid'";
@@ -104,6 +108,7 @@
                         echo "<p><strong><img width='25px' src='img/icone-email.png'></strong> <a style='color:#444; text-decoration: none;margin-left:5px' href='mailto:$row[aemail]' target='_blank'>$row[aemail]</a></p>";
                         echo "<p><strong><img width='25px' src='img/icone-facebook2.png'></strong> <a style='color:#444;margin-left:5px;text-decoration: none' href='$row[afacebook]' target='_blank'>$row[afacebook]</a></p>";
                         echo "<p><strong><img width='25px' src='img/icone-instagram2.png'></strong> <a style='color:#444;margin-left:5px;text-decoration: none' href='$row[ainstagram]' target='_blank'>$row[ainstagram]</a></p>";
+                        echo "<p><strong><img width='25px' src='img/icone-linkedin2.png'></strong> <a style='color:#444;margin-left:5px;text-decoration: none' href='$row[alinkedin]' target='_blank'>$row[alinkedin]</a></p>";
                         echo "<p><strong><img width='25px' src='img/icone-endereco2.png'></strong><span style='color:#444;margin-left:8px;text-decoration: none'>$row[alogradouro], $row[anumero] - $row[abairro] - $row[acidade]/$row[aestado]</span> </p>";
 
 

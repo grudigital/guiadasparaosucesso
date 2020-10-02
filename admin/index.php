@@ -8,7 +8,11 @@ if ($_SESSION['usuarioNome'] == '') {
 <?php include 'includes/header.php' ?>
 
 <body class="fixed-left">
-<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+<div id="preloader">
+    <div id="status">
+        <div class="spinner"></div>
+    </div>
+</div>
 <div id="wrapper">
     <?php include 'includes/menu.php' ?>
     <div class="content-page">
@@ -45,41 +49,75 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-md-6 col-xl-3">
                             <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-basket"></i></span>
-                                <div class="mini-stat-info">
-                                    <span class="counter text-blue-grey">25.140</span>
-                                    Registered properties
-                                </div>
+                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
+                                            class="mdi mdi-account-check"></i></span>
+
+                                <?php
+                                require("connections/conn.php");
+                                $sqlanunciantes = "SELECT * FROM anunciantes";
+                                $executa_query_anunciantes = mysqli_query($conn, $sqlanunciantes);
+                                $conta_linhas_anunciantes = mysqli_num_rows($executa_query_anunciantes);
+
+                                echo "<div class='mini-stat-info'>";
+                                echo "<span class='counter text-blue-grey'>$conta_linhas_anunciantes</span>";
+                                echo "Anunciantes cadastrados no site";
+                                echo "</div>";
+                                ?>
+
                                 <div class="clearfix"></div>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3">
                             <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-black-mesa"></i></span>
-                                <div class="mini-stat-info">
-                                    <span class="counter text-blue-grey">65.241</span>
-                                    Destaques
-                                </div>
+                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
+                                            class="mdi mdi-package-variant-closed"></i></span>
+                                <?php
+                                require("connections/conn.php");
+                                $sqlprodutos = "SELECT * FROM produtos";
+                                $executa_query_produtos = mysqli_query($conn, $sqlprodutos);
+                                $conta_linhas_produtos = mysqli_num_rows($executa_query_produtos);
+
+                                echo "<div class='mini-stat-info'>";
+                                echo "<span class='counter text-blue-grey'>$conta_linhas_produtos</span>";
+                                echo "Produtos cadastrados no site";
+                                echo "</div>";
+                                ?>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3">
                             <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-buffer"></i></span>
-                                <div class="mini-stat-info">
-                                    <span class="counter text-blue-grey">14.412</span>
-                                    Banners
-                                </div>
+                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
+                                            class="mdi mdi-comment"></i></span>
+                                <?php
+                                require("connections/conn.php");
+                                $sqlcomentarios = "SELECT * FROM anunciantes_comentarios";
+                                $executa_query_comentarios = mysqli_query($conn, $sqlcomentarios);
+                                $conta_linhas_comentarios = mysqli_num_rows($executa_query_comentarios);
+
+                                echo "<div class='mini-stat-info'>";
+                                echo "<span class='counter text-blue-grey'>$conta_linhas_comentarios</span>";
+                                echo "Comentários em anúncios";
+                                echo "</div>";
+                                ?>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3">
                             <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-coffee"></i></span>
-                                <div class="mini-stat-info">
-                                    <span class="counter text-blue-grey">20.544</span>
-                                    Usuários cadastrados
-                                </div>
+                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
+                                            class="mdi mdi-contact-mail"></i></span>
+                                <?php
+                                require("connections/conn.php");
+                                $sqlorcamentos = "SELECT * FROM anunciantes_orcamento";
+                                $executa_query_orcamentos = mysqli_query($conn, $sqlorcamentos);
+                                $conta_linhas_orcamentos = mysqli_num_rows($executa_query_orcamentos);
+
+                                echo "<div class='mini-stat-info'>";
+                                echo "<span class='counter text-blue-grey'>$conta_linhas_orcamentos</span>";
+                                echo "Orçamentos em anúncios";
+                                echo "</div>";
+                                ?>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -90,99 +128,28 @@ if ($_SESSION['usuarioNome'] == '') {
                         <div class="col-xl-6">
                             <div class="card m-b-20">
                                 <div class="card-body">
-                                    <h4 class="mt-0 m-b-30 header-title">Últimos anunciantes</h4>
+                                    <h4 class="mt-0 m-b-30 header-title">Últimos anunciantes ativos</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-vertical mb-0">
 
                                             <tbody>
 
+                                            <?php
+                                            require("connections/conn.php");
+                                            $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id where a.status = 1 order by a.id desc limit 7";
+                                            $result = mysqli_query($conn, $sql);
+                                            while ($row = mysqli_fetch_assoc($result)) {
 
 
+                                                echo "<tr>";
+                                                echo "<td>$row[atitulo]</td>";
+                                                echo "<td>$row[accategoria]</td>";
+                                                echo "<td>$row[adatacadastro]</td>";
+                                                echo "</tr>";
+                                            }
+                                            ?>
 
-                                            <tr>
-                                                <td>
-                                                    4 bedroom house
-                                                </td>
-                                                <td>
-                                                    New York City
-                                                </td>
-                                                <td>
-                                                    New York
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    5/12/2016
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    Apartment in the center
-                                                </td>
-                                                <td>
-                                                    Los Angeles
-                                                </td>
-                                                <td>
-                                                    California
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    10/11/2016
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    House with yard
-                                                </td>
-                                                <td>
-                                                    Filadélfia
-                                                </td>
-                                                <td>
-                                                    Pensilvânia
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    8/11/2016
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    House with accessibility
-                                                </td>
-                                                <td>
-                                                    San Antonio
-                                                </td>
-                                                <td>
-                                                    Texas
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    7/11/2016
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    Beautiful apartment
-                                                </td>
-                                                <td>
-                                                    Houston
-                                                </td>
-                                                <td>
-                                                    Texas
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    1/11/2016
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -193,7 +160,7 @@ if ($_SESSION['usuarioNome'] == '') {
                         <div class="col-xl-6">
                             <div class="card m-b-20">
                                 <div class="card-body">
-                                    <h4 class="mt-0 m-b-30 header-title">Destaques no momento</h4>
+                                    <h4 class="mt-0 m-b-30 header-title">últimos contatos</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-vertical mb-0">
@@ -201,91 +168,22 @@ if ($_SESSION['usuarioNome'] == '') {
                                             <tbody>
 
 
+                                            <?php
+                                            require("connections/conn.php");
+                                            $sql = "select * from contatos order by id desc limit 10";
+                                            $result = mysqli_query($conn, $sql);
+                                            while ($row = mysqli_fetch_assoc($result)) {
 
 
-                                            <tr>
-                                                <td>
-                                                    Name of the street
-                                                </td>
-                                                <td>
-                                                    New York City
-                                                </td>
-                                                <td>
-                                                    New York
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    5/12/2016 - 14pm
-                                                </td>
+                                                echo "<tr>";
+                                                echo "<td>$row[nome]</td>";
+                                                echo "<td>$row[telefone]</td>";
+                                                echo "<td>$row[datacontato]</td>";
+                                                echo "</tr>";
+                                            }
+                                            ?>
 
-                                            </tr>
 
-                                            <tr>
-                                                <td>
-                                                    Name of the street
-                                                </td>
-                                                <td>
-                                                    Los Angeles
-                                                </td>
-                                                <td>
-                                                    California
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    10/11/2016 - 8am
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    Name of the street
-                                                </td>
-                                                <td>
-                                                    Filadélfia
-                                                </td>
-                                                <td>
-                                                    Pensilvânia
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    8/11/2016 -5pm
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    Name of the street
-                                                </td>
-                                                <td>
-                                                    San Antonio
-                                                </td>
-                                                <td>
-                                                    Texas
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    7/11/2016 - 1pm
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    Name of the street
-                                                </td>
-                                                <td>
-                                                    Houston
-                                                </td>
-                                                <td>
-                                                    Texas
-                                                    <p class="m-0 text-muted font-14"></p>
-                                                </td>
-                                                <td>
-                                                    1/11/2016 - 2pm
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>

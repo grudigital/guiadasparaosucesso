@@ -1,3 +1,7 @@
+<?php
+session_start();
+if ($_SESSION['usuarioNome'] == '')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
