@@ -22,7 +22,7 @@ if ($_SESSION['usuarioNome'] == '')
                     </a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <a href="index.php"><img src="img/logo_black.svg" alt="" width="100" height="35"></a>
+                            <a href="index.php"><img src="img/logo-mobile.png" alt="" width="100" height="35"></a>
                             <a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
                         </div>
                         <ul>
