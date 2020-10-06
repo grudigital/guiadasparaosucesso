@@ -69,7 +69,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<input type='hidden' name='imagem' value='imagem'>";
+                                        echo "<input type='hidden' name='imagem' value='$row[bimagem]'>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Link</label>";

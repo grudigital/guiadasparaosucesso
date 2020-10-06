@@ -5,6 +5,11 @@ $usuario = "root";
 $senha = "";
 $dbname = "guiadasparaosucesso";
 
+//$servidor = "localhost";
+//$usuario = "u319275366_grudigital";
+//$senha = "2423*Wxci290989";
+//$dbname = "u319275366_sistema2020";
+
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
 if(!$conn){

@@ -9,7 +9,7 @@ const $owlCarousel = $("#carousel-home-2 .owl-carousel").owlCarousel({
   items: 2,
   loop: true,
   center: true,
-  nav: false,
+  nav: true,
   dots:true,
 	responsive: {
 			0: {

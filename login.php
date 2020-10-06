@@ -143,7 +143,27 @@ if ($_SESSION['usuarioNome'] == '')
                                         </div>
                                     </div>
                                     <!-- /row -->
-<input type="hidden" name="status" value="2">
+                                <input type="hidden" name="status" value="2">
+
+
+                                    <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" required class="form-check-input" id="materialUnchecked">
+                                        <label class="form-check-label" for="materialUnchecked">Aceito os termos de <a target="_blank" href="termos-de-uso.php">uso</a> e <a target="_blank" href="politica-de-privacidade.php">privacidade</a>.</label>
+                                    </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
                                 </div>
 
                                 <div class="text-center"><input type="submit" value="Processar cadastro"

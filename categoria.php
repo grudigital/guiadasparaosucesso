@@ -31,7 +31,7 @@ if ($_SESSION['usuarioNome'] == '')
             echo "<h1>$row[categoria]</h1>";
             echo "</div>";
             echo "</div>";
-            echo "<img src='admin/uploads/categorias/$row[imagem]' class='img-fluid' alt=''>";
+            echo "<img src='admin/uploads/categorias/$row[imagem]' height='550' width='1350' class='img-fluid' alt=''>";
             echo "</div>";
         }
         mysqli_close($conn);

@@ -44,7 +44,7 @@ if ($_SESSION['usuarioNome'] == '')
                                 <?php
                                 require("admin/connections/conn.php");
                                 $pegaid = $_SESSION['usuarioId'];
-                                $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,cidade,estado,whatsapp,email,facebook,instagram,linkedin,descricao FROM anunciantes where id = '$pegaid'";
+                                $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,complemento,cep,datanascimento,cidade,estado,whatsapp,email,facebook,instagram,linkedin,descricao,senha FROM anunciantes where id = '$pegaid'";
                                 $result = mysqli_query($conn, $sql);
 
                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -52,16 +52,26 @@ if ($_SESSION['usuarioNome'] == '')
                                     echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
                                                    id='example-text-input'>";
 
-
-
-                                    echo "<div class='form-group'>";
+                                    echo "<div class='row no-gutters'>";
+                                    echo "<div class='col-6 form-group pr-1'>";
                                     echo "<p style='margin-bottom: 2px'>E-mail:</p>";
-                                    echo "<input type='text' name='email' value='$row[email]' class='form-control'>";
+                                    echo "<input type='text' class='form-control' name='email' value='$row[email]'>";
+                                    echo "</div>";
+                                    echo "<div class='col-6 form-group pl-1'>";
+                                    echo "<p style='margin-bottom: 2px'>Data de Nascimento:</p>";
+                                    echo "<input type='date' class='form-control' name='datanascimento' value='$row[datanascimento]'>";
+                                    echo "</div>";
                                     echo "</div>";
 
-                                    echo "<div class='form-group'>";
+                                    echo "<div class='row no-gutters'>";
+                                    echo "<div class='col-6 form-group pr-1'>";
                                     echo "<p style='margin-bottom: 2px'>Título:</p>";
-                                    echo "<input type='text' name='titulo' value='$row[titulo]' class='form-control'>";
+                                    echo "<input type='text' class='form-control' name='titulo' value='$row[titulo]'>";
+                                    echo "</div>";
+                                    echo "<div class='col-6 form-group pl-1'>";
+                                    echo "<p style='margin-bottom: 2px'>Nova senha:</p>";
+                                    echo "<input type='text' class='form-control' name='senha' value='$row[senha]'>";
+                                    echo "</div>";
                                     echo "</div>";
 
                                     echo "<div class='form-group'>";
@@ -88,25 +98,41 @@ if ($_SESSION['usuarioNome'] == '')
                                 <?php
                                 require("admin/connections/conn.php");
                                 $pegaid = $_SESSION['usuarioId'];
-                                $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
+                                $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,complemento,cep,datanascimento,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
                                 $result = mysqli_query($conn, $sql);
 
                                 while ($row = mysqli_fetch_assoc($result)) {
 
-                                echo "<div class='form-group'>";
+                                    echo "<div class='row no-gutters'>";
+                                    echo "<div class='col-6 form-group pr-1'>";
                                     echo "<p style='margin-bottom: 2px'>Logradouro:</p>";
-                                    echo "<input type='text' name='logradouro' value='$row[titulo]' class='form-control'>";
+                                    echo "<input type='text' class='form-control' name='logradouro' value='$row[logradouro]'>";
                                     echo "</div>";
-                                echo "<div class='row no-gutters'>";
+                                    echo "<div class='col-6 form-group pl-1'>";
+                                    echo "<p style='margin-bottom: 2px'>Numero:</p>";
+                                    echo "<input type='text' class='form-control' name='numero' value='$row[numero]'>";
+                                    echo "</div>";
+                                    echo "</div>";
+
+                                    echo "<div class='row no-gutters'>";
                                     echo "<div class='col-4 form-group pr-1'>";
-                                        echo "<p style='margin-bottom: 2px'>Número:</p>";
-                                        echo "<input type='text' class='form-control' name='numero' value='$row[numero]'>";
-                                        echo "</div>";
-                                    echo "<div class='col-8 form-group pl-1'>";
-                                        echo "<p style='margin-bottom: 2px'>Bairro:</p>";
-                                        echo "<input type='text' class='form-control' name='bairro' value='$row[bairro]'>";
-                                        echo "</div>";
+                                    echo "<p style='margin-bottom: 2px'>Bairro:</p>";
+                                    echo "<input type='text' class='form-control' name='bairro' value='$row[bairro]'>";
                                     echo "</div>";
+                                    echo "<div class='col-4 form-group pl-1'>";
+                                    echo "<p style='margin-bottom: 2px'>Complemento:</p>";
+                                    echo "<input type='text' class='form-control' name='complemento' value='$row[complemento]'>";
+                                    echo "</div>";
+                                    echo "<div class='col-4 form-group pl-1'>";
+                                    echo "<p style='margin-bottom: 2px'>Cep:</p>";
+                                    echo "<input type='text' class='form-control' name='cep' value='$row[cep]'>";
+                                    echo "</div>";
+                                    echo "</div>";
+
+
+
+
+
                                 echo "<div class='row no-gutters'>";
                                     echo "<div class='col-6 form-group pr-1'>";
                                         echo "<p style='margin-bottom: 2px'>Cidade:</p>";

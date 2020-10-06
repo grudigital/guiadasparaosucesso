@@ -1659,7 +1659,7 @@ Author URI: http://themeforest.net/user/Ansonika/
 
 /* '' */
 .icon-phone:before {
-  content: '\e802';
+  content: '\e804';
 }
 
 /* '' */
@@ -2096,7 +2096,7 @@ header .main_header a.phone_top strong span {
     font-family: "fontello";
     font-size: 26px;
     font-size: 1.625rem;
-    content: '\e802';
+    content: '\e804';
     line-height: 1;
     padding: 0;
     margin: 0;

@@ -26,9 +26,9 @@ if ($_SESSION['usuarioNome'] == '')
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
 
-
+echo "<a href='$row[link]'>";
                     echo "<div class='owl-slide cover' style='background-image: url(admin/uploads/banners/$row[imagem]);'>";
-                    echo "<div class='opacity-mask d-flex align-items-center' data-opacity-mask='rgba(0, 0, 0, 0.5)'>";
+                    echo "<div class='opacity-mask d-flex align-items-center'>";
                     echo "<div class='container'>";
                     echo "<div class='row justify-content-center justify-content-md-start'>";
                     echo "<div class='col-lg-12 static'>";
@@ -39,7 +39,9 @@ if ($_SESSION['usuarioNome'] == '')
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
+                   
                     echo "</div>";
+                     echo "</a>";
 
                 }
                 ?>
@@ -182,7 +184,7 @@ if ($_SESSION['usuarioNome'] == '')
 
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "SELECT a.id aid, a.imagem aimagem, a.status astatus, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante where a.status = 1 group by a.id";
+                $sql = "SELECT a.id aid, a.imagem aimagem, a.status astatus, a.titulo atitulo, ac.anunciante acanunciante, AVG(estrelas) from anunciantes as a left join anunciantes_comentarios as ac on a.id = ac.anunciante where a.status = 1 group by a.id order by a.id desc limit 8";
                 $result = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -191,7 +193,7 @@ if ($_SESSION['usuarioNome'] == '')
                     echo "<div class='grid_item'>";
                     echo "<figure>";
                     echo "<a href='anunciante.php?id=$row[aid]'>";
-                    echo "<img class='img-fluid lazy' src='admin/uploads/anunciantes/$row[aimagem]'
+                    echo "<img class='lazy' width='290' height='194' src='admin/uploads/anunciantes/$row[aimagem]'
                                      data-src='admin/uploads/anunciantes/$row[aimagem]' alt='$row[aimagem]'>";
 
                     echo "</a>";
@@ -275,7 +277,7 @@ if ($_SESSION['usuarioNome'] == '')
                     echo "<div class='grid_item'>";
                     echo "<figure>";
                     echo "<a href='anunciante.php?id=$row[aid]'>";
-                    echo "<img class='owl-lazy' src='admin/uploads/anunciantes/$row[aimagem]'
+                    echo "<img class='owl-lazy' height='196' width='291' src='admin/uploads/anunciantes/$row[aimagem]'
                                      data-src='admin/uploads/anunciantes/$row[aimagem]' alt=''>";
                     echo "</a>";
                     echo "</figure>";

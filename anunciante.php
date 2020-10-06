@@ -23,7 +23,7 @@ if ($_SESSION['usuarioNome'] == '')
 
                         echo "<p>";
                         echo "<a href='#' title='$row[atitulo]' data-effect='mfp-zoom-in'><img
-                                    src='admin/uploads/anunciantes/$row[aimagem]' alt='' class='img-fluid'></a>";
+                                    src='admin/uploads/anunciantes/$row[aimagem]' height='390' width='580' alt='' class='img-fluid'></a>";
                         echo "</p>";
                     }
                     ?>
@@ -35,7 +35,7 @@ if ($_SESSION['usuarioNome'] == '')
                     require("admin/connections/conn.php");
                     $pegaid = (int)$_GET['id'];
 
-                    $sql = "select a.id aid, a.titulo atitulo,a.categoria acategoria, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
+                    $sql = "select a.id aid, a.titulo atitulo,a.categoria acategoria, a.telefone atelefone, a.logradouro alogradouro, a.numero anumero, a.bairro abairro, a.complemento acomplemento, a.cep acep, a.cidade acidade, a.estado aestado, a.inicioplano ainicioplano, a.fimplano afimplano, a.whatsapp awhatsapp, a.email aemail, a.facebook afacebook, a.instagram ainstagram, a.descricao adescricao, a.senha asenha, a.imagem aimagem, a.video avideo, a.status astatus, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria, ac.imagem acimagem FROM anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id  where a.id = '$pegaid'";
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) {
 
@@ -102,14 +102,14 @@ if ($_SESSION['usuarioNome'] == '')
                         if ($row['alogotipo'] == '') {
 
                         } else {
-                            echo "<div style='margin-bottom:30px;border:solid 1px #ddd; padding-top:10px; padding-bottom:10px;width: 230px'><img src='admin/uploads/logotipos/$row[alogotipo]'></div>";
+                            echo "<div style='margin-bottom:30px;border:solid 1px #ddd; padding-top:10px; padding-bottom:10px;width: 250px; height: 110px'><img style='height: 90px'; width='240px'  src='admin/uploads/logotipos/$row[alogotipo]'></div>";
                         }
                         echo "<p><strong><img width='25px' src='img/icone-telefone2.png'></strong><span style='margin-left:5px'> $row[atelefone]</span></p>";
                         echo "<p><strong><img width='25px' src='img/icone-email.png'></strong> <a style='color:#444; text-decoration: none;margin-left:5px' href='mailto:$row[aemail]' target='_blank'>$row[aemail]</a></p>";
                         echo "<p><strong><img width='25px' src='img/icone-facebook2.png'></strong> <a style='color:#444;margin-left:5px;text-decoration: none' href='$row[afacebook]' target='_blank'>$row[afacebook]</a></p>";
                         echo "<p><strong><img width='25px' src='img/icone-instagram2.png'></strong> <a style='color:#444;margin-left:5px;text-decoration: none' href='$row[ainstagram]' target='_blank'>$row[ainstagram]</a></p>";
                         echo "<p><strong><img width='25px' src='img/icone-linkedin2.png'></strong> <a style='color:#444;margin-left:5px;text-decoration: none' href='$row[alinkedin]' target='_blank'>$row[alinkedin]</a></p>";
-                        echo "<p><strong><img width='25px' src='img/icone-endereco2.png'></strong><span style='color:#444;margin-left:8px;text-decoration: none'>$row[alogradouro], $row[anumero] - $row[abairro] - $row[acidade]/$row[aestado]</span> </p>";
+                        echo "<p><strong><img width='25px' src='img/icone-endereco2.png'></strong><span style='color:#444;margin-left:8px;text-decoration: none'>$row[alogradouro], $row[anumero] - $row[abairro] - $row[acomplemento] - $row[acep] - $row[acidade]/$row[aestado]</span> </p>";
 
 
                     }

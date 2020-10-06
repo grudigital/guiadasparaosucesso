@@ -17,7 +17,7 @@
         <div class="accountbg"></div>
         <div class="wrapper-page">
             <div class="card">
-                <div class="card-body">
+                <div style="background-color: #fff; padding:50px; border-radius: 10px" class="card-body">
                     <h3 class="text-center m-0">
                         <a href="index.php" class="logo logo-admin"><img src="assets/images/logo.png" height="80" alt="logo"></a>
                     </h3>
@@ -34,12 +34,8 @@
                                 <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha">
                             </div>
                             <div class="form-group row m-t-20">
-                                <div class="col-sm-6">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 text-right">
+
+                                <div class="col-sm-12 text-right">
                                     <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Entrar</button>
                                 </div>
                             </div>

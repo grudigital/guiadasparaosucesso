@@ -55,7 +55,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
+                                    $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,complemento,cep,datanascimento,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     $sqlplanoselecionado = "select a.id aid, a.plano aplano, p.id pid, p.titulo ptitulo from anunciantes as a inner join planos as p on a.plano = p.id where a.id = '$pegaid'";
@@ -63,6 +63,12 @@ if ($_SESSION['usuarioNome'] == '') {
 
                                     $sqlplanos = "select id, titulo from planos";
                                     $resultplanos = mysqli_query($conn, $sqlplanos);
+
+                                    $sqlcategoriaselecionada = "select a.id aid, a.categoria acategoria, ac.id acid, ac.categoria accategoria from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id where a.id = '$pegaid'";
+                                    $resultcategoriaselecionada = mysqli_query($conn,$sqlcategoriaselecionada);
+
+                                    $sqlcategorias = "select id, categoria from anunciantes_categoria";
+                                    $resultcategorias = mysqli_query($conn, $sqlcategorias);
 
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
@@ -76,8 +82,26 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<input type='hidden' value='$row[categoria]' name='categoria'>";
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Categoria</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<select name='categoria' class='form-control'>";
 
+                                        //listar opcao selecionada
+                                        while ($retornocategoriaselecionada = mysqli_fetch_array($resultcategoriaselecionada)){
+                                            echo "<option style='background-color: #263238; color: #fff' selected value='$retornocategoriaselecionada[acid]'>$retornocategoriaselecionada[accategoria]</option>";
+                                        }
+                                        //listar opcao selecionada
+
+                                        //listar todas as opcoes
+                                        while ($retornocategoria = mysqli_fetch_array($resultcategorias)){
+                                            echo "<option value='$retornocategoria[id]'>$retornocategoria[categoria]</option>";
+                                        }
+                                        //listar todas as opcoes
+
+                                        echo "</select>";
+                                        echo "</div>";
+                                        echo "</div>";
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Telefone</label>";
                                         echo "<div class='col-sm-10'>";
@@ -106,6 +130,30 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Bairro</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='bairro' type='text' value='$row[bairro]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Complemento</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='complemento' type='text' value='$row[complemento]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Cep</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='cep' type='text' value='$row[cep]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Data de nascimento</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='datanascimento' type='date' value='$row[datanascimento]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
@@ -198,7 +246,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<input type='hidden' value='$row[senha]' name='senha'>";
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Senha</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='senha' type='text' value='$row[senha]' id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+
                                         echo "<input type='hidden' value='$row[imagem]' name='imagem'>";
                                         echo "<input type='hidden' value='$row[video]' name='video'>";
                                         echo "<input type='hidden' value='$row[status]' name='status'>";

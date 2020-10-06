@@ -107,6 +107,30 @@ if ($_SESSION['usuarioNome'] == '') {
                                     </div>
 
                                     <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Complemento</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="complemento" type="text" placeholder="Complemento"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Cep</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="cep" type="text" placeholder="Cep"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Data de nascimento</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="datanascimento" type="date" placeholder="Data de nascimento"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Cidade</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="cidade" type="text" placeholder="Cidade"

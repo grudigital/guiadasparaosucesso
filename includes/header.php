@@ -22,7 +22,7 @@ if ($_SESSION['usuarioNome'] == '')
                     </a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <a href="index.php"><img src="img/logo_black.svg" alt="" width="100" height="35"></a>
+                            <a href="index.php"><img src="img/logo-mobile.png" alt="" width="100" height="35"></a>
                             <a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
                         </div>
                         <ul>
@@ -39,12 +39,9 @@ if ($_SESSION['usuarioNome'] == '')
                             <li>
                                 <a href="contato.php">Contato</a>
                             </li>
-                            <div style="background-color:#fff; float: right; width:110px; text-align: center; height: 35px; margin-top: 17px; margin-right: 100px; padding-top: 6px; color:#653C7D; border-radius: 5px">
-                                <li>
-                                    <a style="color:#653C7D;text-align: center; text-transform: uppercase; font-weight: bold"
-                                       href="faca-parte.php">Faça parte</a>
-                                </li>
-                            </div>
+                            <li style="background-color: #fff; border-radius: 5px">
+                                <a style="color:#653C7D; padding-top: 20px; padding-bottom: 20px" href="faca-parte.php">Faça parte</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -108,10 +105,10 @@ if ($_SESSION['usuarioNome'] == '')
                 error_reporting(E_ERROR | E_WARNING | E_PARSE);
                 if ($_SESSION['usuarioId'] == '') {
                     echo "<div class='col-xl-3 col-lg-2 col-md-3'>";
-                    echo "<ul style='margin-left:-210px;' class='top_tools'>";
+                    echo "<ul class='top_tools'>";
                     echo "<li>";
                     echo "<div class='dropdown dropdown-access'>";
-                    echo "<a href='conta.php' class='access_link'><span>Conta</span></a>";
+                    echo "<a href='login.php' class='access_link'><span>Conta</span></a>";
                     echo "<div style='margin-left: -170px' class='dropdown-menu'>";
                     echo "<a href='login.php' class='btn_1'>Entrar ou cadastrar</a>";
                     echo "</div>";
