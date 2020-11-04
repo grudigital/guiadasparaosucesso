@@ -145,6 +145,18 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    id="example-text-input">
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Divulgar endereço</label>
+                                        <div class="col-sm-10">
+                                            <select name='divulgaendereco' class='form-control'>
+                                                <option name=''>Escolha uma opção</option>
+                                                <option name='sim'>Sim</option>
+                                                <option name='nao'>Não</option>
+                                                </select>
+                                            
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Inicio do plano</label>

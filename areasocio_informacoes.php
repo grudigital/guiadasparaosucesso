@@ -64,13 +64,9 @@ if ($_SESSION['usuarioNome'] == '')
                                     echo "</div>";
 
                                     echo "<div class='row no-gutters'>";
-                                    echo "<div class='col-6 form-group pr-1'>";
+                                    echo "<div class='col-12 form-group pr-1'>";
                                     echo "<p style='margin-bottom: 2px'>Título:</p>";
                                     echo "<input type='text' class='form-control' name='titulo' value='$row[titulo]'>";
-                                    echo "</div>";
-                                    echo "<div class='col-6 form-group pl-1'>";
-                                    echo "<p style='margin-bottom: 2px'>Nova senha:</p>";
-                                    echo "<input type='text' class='form-control' name='senha' value='$row[senha]'>";
                                     echo "</div>";
                                     echo "</div>";
 
@@ -98,20 +94,25 @@ if ($_SESSION['usuarioNome'] == '')
                                 <?php
                                 require("admin/connections/conn.php");
                                 $pegaid = $_SESSION['usuarioId'];
-                                $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,complemento,cep,datanascimento,cidade,estado,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
+                                $sql = "select id,titulo,categoria,telefone,logradouro,numero,bairro,complemento,cep,datanascimento,cidade,estado,divulgaendereco,inicioplano,fimplano,whatsapp,email,facebook,instagram,linkedin,descricao,senha,imagem,video,status FROM anunciantes where id = '$pegaid'";
                                 $result = mysqli_query($conn, $sql);
+                                
+                                $sqlcategoriaselecionada = "select * from anunciantes where id = '$pegaid'";
+                                    $resultcategoriaselecionada = mysqli_query($conn,$sqlcategoriaselecionada);
 
+                                    
                                 while ($row = mysqli_fetch_assoc($result)) {
 
                                     echo "<div class='row no-gutters'>";
-                                    echo "<div class='col-6 form-group pr-1'>";
+                                    echo "<div class='col-8 form-group pr-1'>";
                                     echo "<p style='margin-bottom: 2px'>Logradouro:</p>";
                                     echo "<input type='text' class='form-control' name='logradouro' value='$row[logradouro]'>";
                                     echo "</div>";
-                                    echo "<div class='col-6 form-group pl-1'>";
+                                    echo "<div class='col-4 form-group pl-1'>";
                                     echo "<p style='margin-bottom: 2px'>Numero:</p>";
                                     echo "<input type='text' class='form-control' name='numero' value='$row[numero]'>";
                                     echo "</div>";
+                                    
                                     echo "</div>";
 
                                     echo "<div class='row no-gutters'>";
@@ -134,14 +135,26 @@ if ($_SESSION['usuarioNome'] == '')
 
 
                                 echo "<div class='row no-gutters'>";
-                                    echo "<div class='col-6 form-group pr-1'>";
+                                    echo "<div class='col-5 form-group pr-1'>";
                                         echo "<p style='margin-bottom: 2px'>Cidade:</p>";
                                         echo "<input type='text' class='form-control' name='cidade' value='$row[cidade]'>";
                                         echo "</div>";
-                                    echo "<div class='col-6 form-group pl-1'>";
+                                    echo "<div class='col-2 form-group pl-1'>";
                                         echo "<p style='margin-bottom: 2px'>Estado:</p>";
                                         echo "<input type='text' class='form-control' name='estado' value='$row[estado]'>";
                                         echo "</div>";
+                                        echo "<div class='col-5 form-group pl-1'>";
+                                    echo "<p style='margin-bottom: 2px'>Divulgar endereco?</p>";
+                                    echo "<select name='divulgaendereco' class='form-control'>";
+                                    while ($retornocategoriaselecionada = mysqli_fetch_array($resultcategoriaselecionada)){
+                                            echo "<option style='background-color: #791F5D; color: #fff' selected value='$retornocategoriaselecionada[divulgaendereco]'>$retornocategoriaselecionada[divulgaendereco]</option>";
+                                        }
+                                    
+                                    echo "<option value='sim'>Sim</option>";
+                                    echo "<option value='nao'>Não</option>";
+                                    echo "<select>";
+                                    
+                                    echo "</div>";
                                     echo "</div>";
                                 }
                                 mysqli_close($conn);

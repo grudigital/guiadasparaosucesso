@@ -86,20 +86,23 @@ if ($_SESSION['usuarioNome'] == '')
                 <span>Planos</span>
                 <p>Confira outros planos cadastrados.</p>
             </div>
-            <div class="owl-carousel owl-theme products_carousel">
+            <div style="margin-top:50px" class="container margin_30">
+            <div class="row small-gutters">
+
 
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "select id,titulo,valor,resumo,descricao,botao,imagem,status FROM planos where status = 1 ";
+                $pesquisar = $_POST['pesquisar'];
+
+                $sql = "select * from planos";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
-
-                    echo "<div class='item'>";
+                    echo "<div class='col-4 col-md-4 col-xl-4'>";
                     echo "<div class='grid_item'>";
                     echo "<figure>";
                     echo "<a href='planos_interna.php?id=$row[id]'>";
-                    echo "<img class='owl-lazy' src='admin/uploads/planos/$row[imagem]'
-                                     data-src='admin/uploads/planos/$row[imagem]' alt=''>";
+                    echo "<img class='img-fluid lazy' src='admin/uploads/planos/$row[imagem]'
+                                     data-src='admin/uploads/planos/$row[imagem]' alt='$row[titulo]'>";
                     echo "</a>";
                     echo "</figure>";
                     echo "<a href='planos_interna.php?id=$row[id]'>";
@@ -110,10 +113,14 @@ if ($_SESSION['usuarioNome'] == '')
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
-
                 }
                 ?>
+
+
             </div>
+
+
+        </div>
         </div>
 
 

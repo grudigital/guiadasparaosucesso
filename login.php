@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 session_start();
 if ($_SESSION['usuarioNome'] == '')
 ?>
@@ -132,7 +133,7 @@ if ($_SESSION['usuarioNome'] == '')
                                         <div class="col-6 pl-1">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="telefone"
-                                                       placeholder="Telefone*">
+                                                       placeholder="Telefone">
                                             </div>
                                         </div>
                                         <div class="col-6 pl-1">

@@ -12,7 +12,22 @@ if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
     $_SESSION['usuarioId'] = $resultado['id'];
     $_SESSION['usuarioNome'] = $resultado['titulo'];
     $_SESSION['usuarioEmail'] = $resultado['email'];
-    echo "<meta http-equiv='refresh' content=0;url='../areasocio.php'>";
+    $_SESSION['usuarioStatus'] = $resultado['status'];
+
+    if($_SESSION['usuarioStatus'] == 1){
+        unset(
+            $_SESSION['usuarioId'],
+            $_SESSION['usuarioNome'],
+            $_SESSION['usuarioEmail'],
+            $_SESSION['usuarioSenha'],
+            $_SESSION['usuarioStatus']
+        );
+        echo "<meta http-equiv='refresh' content=0;url='../login-desativado.php'>";
+    }else{
+        echo "<meta http-equiv='refresh' content=0;url='../areasocio.php'>";
+    }
+
+
 } else {
     $_SESSION['loginErro'] = "Usuário ou senha inválido";
     echo "<meta http-equiv='refresh' content=0;url='../index-acesso-negado.php'>";

@@ -69,7 +69,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             }
                                             else
                                             {
-                                                echo "<img src='uploads/blocos/$row[imagem]' class='img-fluid'>";
+                                                echo "<img src='uploads/categorias/$row[imagem]' class='img-fluid'>";
                                                 echo "<input type='hidden' name='id' value='$row[id]'>";
                                                 echo "<br/><br/>";
                                             }

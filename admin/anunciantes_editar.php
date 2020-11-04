@@ -173,6 +173,17 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+                                        
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Divulgar endereço</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<select name='divulgaendereco' class='form-control'>";
+                                       echo "<option value='sim'>Sim</option>";
+                                       echo "<option value='nao'>Não</option>";
+                                        echo "</select>";
+                                        
+                                        echo "</div>";
+                                        echo "</div>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Plano</label>";

@@ -57,8 +57,13 @@ if ($_SESSION['usuarioNome'] == '')
                     echo "<div class='grid_item'>";
                     echo "<figure>";
                     echo "<a href='anunciante.php?id=$row[id]'>";
-                    echo "<img class='img-fluid lazy' src='admin/uploads/anunciantes/$row[imagem]'
+                    if($row['imagem'] == null or $row['imagem'] == ''){
+                        echo "<img style='height:195px; width:290px' class='img-fluid lazy' src='images/sem-foto.png'
+                                     data-src='images/sem-foto.png' alt='$row[titulo]'>";
+                    }else{
+                        echo "<img style='height:195px; width:290px' class='img-fluid lazy' src='admin/uploads/anunciantes/$row[imagem]'
                                      data-src='admin/uploads/anunciantes/$row[imagem]' alt='$row[titulo]'>";
+                    }
                     echo "</a>";
                     echo "</figure>";
                     echo "<a href='anunciante.php?id=$row[id]'>";

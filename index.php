@@ -193,9 +193,13 @@ echo "<a href='$row[link]'>";
                     echo "<div class='grid_item'>";
                     echo "<figure>";
                     echo "<a href='anunciante.php?id=$row[aid]'>";
-                    echo "<img class='lazy' width='290' height='194' src='admin/uploads/anunciantes/$row[aimagem]'
+                    if($row['aimagem'] == null or $row['aimagem'] == ''){
+                        echo "<img class='lazy' width='290' height='194' src='images/sem-foto.png'
+                                     data-src='images/sem-foto.png' alt='$row[atitulo]'>";
+                    }else{
+                        echo "<img class='lazy' width='290' height='194' src='admin/uploads/anunciantes/$row[aimagem]'
                                      data-src='admin/uploads/anunciantes/$row[aimagem]' alt='$row[aimagem]'>";
-
+                    }
                     echo "</a>";
                     echo "</figure>";
 
@@ -277,8 +281,13 @@ echo "<a href='$row[link]'>";
                     echo "<div class='grid_item'>";
                     echo "<figure>";
                     echo "<a href='anunciante.php?id=$row[aid]'>";
-                    echo "<img class='owl-lazy' height='196' width='291' src='admin/uploads/anunciantes/$row[aimagem]'
-                                     data-src='admin/uploads/anunciantes/$row[aimagem]' alt=''>";
+                    if($row['aimagem'] == null or $row['aimagem'] == ''){
+                        echo "<img class='lazy' width='290' height='194' src='images/sem-foto.png'
+                                     data-src='images/sem-foto.png' alt='$row[atitulo]'>";
+                    }else{
+                        echo "<img class='lazy' width='290' height='194' src='admin/uploads/anunciantes/$row[aimagem]'
+                                     data-src='admin/uploads/anunciantes/$row[aimagem]' alt='$row[aimagem]'>";
+                    }
                     echo "</a>";
                     echo "</figure>";
                     echo "<div class='rating'>";
