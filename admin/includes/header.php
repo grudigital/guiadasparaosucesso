@@ -14,6 +14,7 @@
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
+
     <!--Editor para textarea-->
     <script src="plugins/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript">
@@ -34,4 +35,5 @@
             content_css: '//www.tiny.cloud/css/codepen.min.css'
         });
     </script>
+
 </head>
