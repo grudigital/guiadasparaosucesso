@@ -253,18 +253,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Descrição</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<textarea class='form-control' name='descricao'>$row[descricao]</textarea>";
-                                        echo "</div>";
-                                        echo "</div>";
-
-                                        echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Senha</label>";
-                                        echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='senha' type='text' value='$row[senha]' id='example-text-input'>";
+                                        echo "<textarea class='form-control' id='resumo' name='descricao'>$row[descricao]</textarea>";
                                         echo "</div>";
                                         echo "</div>";
 
 
+
+
+                                        echo "<input type='hidden' value='$row[senha]' name='senha'>";
                                         echo "<input type='hidden' value='$row[imagem]' name='imagem'>";
                                         echo "<input type='hidden' value='$row[video]' name='video'>";
                                         echo "<input type='hidden' value='$row[status]' name='status'>";
