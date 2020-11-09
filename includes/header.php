@@ -40,7 +40,7 @@ if ($_SESSION['usuarioNome'] == '')
                                 <a href="contato.php">Contato</a>
                             </li>
                             <li style="background-color: #fff; border-radius: 5px">
-                                <a style="color:#653C7D; padding-top: 20px; padding-bottom: 20px" href="login2.php">Faça parte</a>
+                                <a style="color:#653C7D; padding-top: 20px; padding-bottom: 20px" href="faca-parte.php">Faça parte</a>
                             </li>
                         </ul>
                     </div>

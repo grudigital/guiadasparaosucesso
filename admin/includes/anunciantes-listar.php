@@ -3,10 +3,11 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 20%">Titulo</th>
-                <th style="width: 18%"></th>
+                <th style="width: 56%">Titulo</th>
+                <th style="width: 20%"></th>
                 <th style="width: 2%"></th>
-                <th style="width: 40%"></th>
+                <th style="width: 20%"></th>
+                <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>

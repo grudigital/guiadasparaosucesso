@@ -41,7 +41,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <div class="row">
                                             <div class="col-4">
                                                 <h4 class="mt-0 header-title">Anunciantes</h4>
-                                                <p class="text-muted m-b-30 font-14">Lista de anunciantes da plataforma</p>
+                                                <p class="text-muted m-b-30 font-14">Lista de anunciantes da
+                                                    plataforma</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">

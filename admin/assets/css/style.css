@@ -512,9 +512,10 @@ code {
   letter-spacing: .035em;
   pointer-events: none;
   cursor: default;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  color: #fff;
   margin-top: 10px !important;
+  text-transform: uppercase;
 }
 
 .profile {
@@ -544,7 +545,7 @@ code {
   width: 240px;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background: #147981;
+  background: #fff;
   position: absolute;
   z-index: 99;
 }
@@ -554,8 +555,10 @@ code {
 }
 
 .side-menu .topbar-left {
-  padding-left: 30px;
+  padding-left: 15px;
+  padding-top:15px;
   background-color: #147981;
+
 }
 
 body.fixed-left .side-menu.left {
@@ -686,7 +689,7 @@ body.fixed-left .side-menu.left {
 }
 
 #sidebar-menu {
-  background-color: #263238;
+  background-color: #E30356;
   padding-bottom: 50px;
   width: 100%;
 }
@@ -727,6 +730,8 @@ body.fixed-left .side-menu.left {
   display: block;
   padding: 12px 20px;
   background-color: #147981;
+
+
 }
 
 #sidebar-menu > ul > li > a:hover {
@@ -973,6 +978,14 @@ body.fixed-left .side-menu.left {
 
 .bg-blue-grey {
   background-color: #557390;
+}
+
+.bg-conecta-vizinhos {
+  background-color: #e30356;
+}
+
+.text-conecta-vizinhos{
+  color: #e30356 !important;
 }
 
 .text-white {
