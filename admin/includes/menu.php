@@ -27,6 +27,12 @@
                     <a href="categorias.php" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Categorias</span></a>
                 </li>
                 <li>
+                    <a href="blog.php" class="waves-effect"><i class="mdi mdi-pencil"></i><span>Blog</span></a>
+                </li>
+                <li>
+                    <a href="estabelecimentos.php" class="waves-effect"><i class="mdi mdi-wallet-giftcard"></i><span>Estabelecimentos</span></a>
+                </li>
+                <li>
                     <a href="planos.php" class="waves-effect"><i class="mdi mdi-star"></i><span>Planos</span></a>
                 </li>
                 <li>

@@ -3,11 +3,11 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 65%">Titulo</th>
+                <th style="width: 67%">Titulo</th>
                 <th style="width: 25%">Data de publicação</th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
-                <th style="width: 2%"></th>
+<!--                <th style="width: 2%"></th>-->
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
             </tr>
@@ -24,7 +24,7 @@
                 echo "<td><a href='blog_imagem.php?id=$row[id]'><button type='button' class='btn btn-primary'>Imagem</button></a></td>";
                 echo "<td><a href='blog_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
                 echo "<td><a href='blog_video.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Vídeo</button></a></td>";
-                echo "<td><a href='blog_comentarios.php?id=$row[id]'><button type='button' class='btn btn-info'>Comentários</button></a></td>";
+//                echo "<td><a href='blog_comentarios.php?id=$row[id]'><button type='button' class='btn btn-info'>Comentários</button></a></td>";
                 echo "<td><a href='functions/blog_excluir.php?id=$row[id]'><button type='button' class='btn btn-danger'>Deletar</button></a></td>";
                 echo "</tr>";
             }

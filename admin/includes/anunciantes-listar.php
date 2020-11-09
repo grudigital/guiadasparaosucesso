@@ -25,10 +25,10 @@
                 echo "<tr>";
                 echo "<td><p style='font-size: 11px'>$row[titulo]</p></td>";
                 if($row['status'] == 1){
-                    echo "<td><a href='functions/anunciantes_status1.php?id=$row[id]'><button type='button' style='font-size: 11px' class='btn btn-success'>Liberado</button></a></td>";
+                    echo "<td><a href='functions/anunciantes_status1.php?id=$row[id]'><button type='button' style='font-size: 11px' class='btn btn-success'>Ativo</button></a></td>";
                 }
                 else {
-                    echo "<td><a href='functions/anunciantes_status2.php?id=$row[id]'><button type='button' style='font-size: 11px' class='btn btn-danger'>Bloqueado</button></a></td>";
+                    echo "<td><a href='functions/anunciantes_status2.php?id=$row[id]'><button type='button' style='font-size: 11px' class='btn btn-danger'>Inativo</button></a></td>";
                 }
                 echo "<td><a href='anunciantes_logotipo.php?id=$row[id]'><button type='button' style='font-size: 11px' class='btn btn-secondary'>Logotipo</button></a></td>";
                 if($row['senha'] == 'fd4b685eb84bf2ba0c26fd3c82f577b5'){

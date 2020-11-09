@@ -83,7 +83,17 @@ if ($_SESSION['usuarioNome'] == '')
                         echo "<p style='margin-top:10px'>$row[descricao]</p>";
                         echo " <div class='row'>";
                         echo "<div class='col-lg-5 col-md-6'>";
-                        echo "<div class='price_main'><span class='new_price'>R$ $row[preconovo] </span><span class='old_price'> R$$row[precoantigo]</span></div>";
+
+                        if($row['precoantigo'] == null){
+                            echo "<div class='price_main'><span class='new_price'>R$ $row[preconovo] </span></div>";
+                        }else{
+                            echo "<div class='price_main'><span class='new_price'>R$ $row[preconovo] </span><span class='old_price'> R$$row[precoantigo]</span></div>";
+                        }
+
+
+
+
+
                         echo "</div>";
                         echo "<div class='col-lg-4 col-md-6'>";
                         echo " <div class='btn_add_to_cart'><a href='$row[linkpagamento]' class='btn_1'>Comprar</a></div>";
@@ -128,7 +138,7 @@ if ($_SESSION['usuarioNome'] == '')
                             echo "<h3>$row[titulo]</h3>";
                             echo "</a>";
                         echo "<div class='price_box'>";
-                            echo "<span class='new_price'>$row[preconovo]</span>";
+                            echo "<span class='new_price'>R$ $row[preconovo]</span>";
                             echo "</div>";
                         echo "</div>";
                 echo "</div>";

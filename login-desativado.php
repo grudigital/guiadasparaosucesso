@@ -21,8 +21,8 @@ if ($_SESSION['usuarioNome'] == '')
 
         <div class="container margin_60">
             <div style="margin-bottom: -30px" class="main_title">
-                <h2>Login desativado</h2>
-                <p>Entre em contato com a equipe GPS.</p>
+                <h2>Login em ativação</h2>
+                <p>Em caso de dúvidas entre em contato com a equipe GPS.</p>
             </div>
         </div>
         <div class="bg_white">

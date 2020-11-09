@@ -14,7 +14,7 @@ if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
     $_SESSION['usuarioEmail'] = $resultado['email'];
     $_SESSION['usuarioStatus'] = $resultado['status'];
 
-    if($_SESSION['usuarioStatus'] == 1){
+    if($_SESSION['usuarioStatus'] == 2){
         unset(
             $_SESSION['usuarioId'],
             $_SESSION['usuarioNome'],

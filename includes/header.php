@@ -12,7 +12,7 @@ if ($_SESSION['usuarioNome'] == '')
                         <a href="index.php"><img src="img/logo.png" alt="" width="83" height="43"></a>
                     </div>
                 </div>
-                <nav class="col-xl-6 col-lg-7">
+                <nav class="col-xl-9 col-lg-2 d-lg-flex align-items-center justify-content-end text-rightt">
                     <a class="open_close" href="javascript:void(0);">
                         <div class="hamburger hamburger--spin">
                             <div class="hamburger-box">
@@ -35,7 +35,12 @@ if ($_SESSION['usuarioNome'] == '')
                             <li>
                                 <a href="produtos.php">Loja</a>
                             </li>
-
+                            <li>
+                                <a href="blog.php">Blog</a>
+                            </li>
+                            <li>
+                                <a href="estabelecimentos-conveniados.php">Estabelecimentos conveniados</a>
+                            </li>
                             <li>
                                 <a href="contato.php">Contato</a>
                             </li>
@@ -45,17 +50,17 @@ if ($_SESSION['usuarioNome'] == '')
                         </ul>
                     </div>
                 </nav>
-                <?php
-                require("admin/connections/conn.php");
-                $sql = "select id, telefone,email,instagram,facebook,telegram,youtube FROM informacoes where id = 1";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<div class='col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right'>";
-                    echo "<a target='_blank' class='phone_top' href='mailto:$row[email]'><strong><span>Precisa de ajuda?</span>$row[email]</strong></a>";
-                    echo "</div>";
-                }
-                mysqli_close($conn);
-                ?>
+<!--                --><?php
+//                require("admin/connections/conn.php");
+//                $sql = "select id, telefone,email,instagram,facebook,telegram,youtube FROM informacoes where id = 1";
+//                $result = mysqli_query($conn, $sql);
+//                while ($row = mysqli_fetch_assoc($result)) {
+//                    echo "<div class='col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right'>";
+//                    echo "<a target='_blank' class='phone_top' href='mailto:$row[email]'><strong><span>Precisa de ajuda?</span>$row[email]</strong></a>";
+//                    echo "</div>";
+//                }
+//                mysqli_close($conn);
+//                ?>
             </div>
         </div>
     </div>

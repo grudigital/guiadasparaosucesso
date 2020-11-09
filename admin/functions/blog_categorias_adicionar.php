@@ -6,6 +6,6 @@ if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));
 }
-echo "<meta http-equiv='refresh' content=0;url='../blog_categorias_adicionado.php'>";
+echo "<meta http-equiv='refresh' content=0;url='../blog_categorias.php'>";
 mysqli_close($conn);
 ?>

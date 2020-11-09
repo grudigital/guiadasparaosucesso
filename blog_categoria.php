@@ -13,14 +13,17 @@ if ($_SESSION['usuarioNome'] == '')
     <main class="bg_gray">
         <div class="container margin_30">
             <div class="page_header">
-                <div class="breadcrumbs">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categorias</a></li>
-                        <li>Publicações</li>
-                    </ul>
-                </div>
-                <h1>Blog e notícias</h1>
+
+                <?php
+                require("admin/connections/conn.php");
+                $pegaid = (int)$_GET['id'];
+
+                $sql = "select * from blog_categorias where id = '$pegaid'";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<h1>$row[categoria]</h1>";
+                }
+                ?>
             </div>
             <div class="row">
                 <div class="col-lg-9">
@@ -34,7 +37,9 @@ if ($_SESSION['usuarioNome'] == '')
 
                         <?php
                         require("admin/connections/conn.php");
-                        $sql = "select bp.id bpid, bp.titulo bptitulo, bp.imagem bpimagem, bp.resumo bpresumo, bp.datapublicacao bpdatapublicacao, bp.categoria bpcategoria, bc.id bcid, bc.categoria bccategoria FROM blog_publicacoes as bp inner join blog_categorias as bc on bp.categoria = bc.id order by bp.id desc";
+                        $pegaid = (int)$_GET['id'];
+
+                        $sql = "select bp.id bpid, bp.titulo bptitulo, bp.imagem bpimagem, bp.resumo bpresumo, bp.datapublicacao bpdatapublicacao, bp.categoria bpcategoria, bc.id bcid, bc.categoria bccategoria FROM blog_publicacoes as bp inner join blog_categorias as bc on bp.categoria = bc.id where bc.id = '$pegaid'";
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) {
 

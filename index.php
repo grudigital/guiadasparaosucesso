@@ -360,7 +360,7 @@ echo "<a href='$row[link]'>";
                     echo "<h3>$row[titulo]</h3>";
                     echo "</a>";
                     echo "<div class='price_box'>";
-                    echo "<span class='new_price'>$row[preconovo]</span>";
+                    echo "<span class='new_price'>R$ $row[preconovo]</span>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

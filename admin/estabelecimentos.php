@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de gerenciamento :: Blog</h3>
+                            <h3 class="page-title">Painel de gerenciamento :: Estabelecimento</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -40,25 +40,21 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Blog</h4>
-                                                <p class="text-muted m-b-30 font-14">Lista de publicações no blog</p>
+                                                <h4 class="mt-0 header-title">Estabelecimento</h4>
+                                                <p class="text-muted m-b-30 font-14">Lista de estabelecimentos</p>
                                             </div>
                                             <div class="col-4"></div>
                                             <div class="col-4">
-                                                <a href="blog_adicionar.php">
+                                                <a href="estabelecimentos_adicionar.php">
                                                     <button style="float: right" type='button' class='btn btn-success'>
                                                         Adicionar
                                                     </button>
                                                 </a>
-                                                <a href="blog_categorias.php">
-                                                    <button style="float: right; margin-right:10px" type='button' class='btn btn-primary'>
-                                                        Categorias
-                                                    </button>
-                                                </a>
+
                                             </div>
                                         </div>
                                     </div>
-                                    <?php include 'includes/blog-lista.php' ?>
+                                    <?php include 'includes/estabelecimentos-lista.php' ?>
                                 </div>
                             </div>
                         </div> <!-- end col -->

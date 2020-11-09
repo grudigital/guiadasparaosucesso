@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de gerenciamento :: Blog</h3>
+                            <h3 class="page-title">Painel de gerenciamento :: Blog :: Categorias :: Adicionar</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -36,38 +36,45 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <div class="card-body">
+                                <form class="card-body" action="functions/blog_categorias_adicionar.php" enctype="multipart/form-data"
+                                      method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Blog</h4>
-                                                <p class="text-muted m-b-30 font-14">Lista de publicações no blog</p>
+                                                <h4 class="mt-0 header-title">Categorias</h4>
+                                                <p class="text-muted m-b-30 font-14">Adicionar categoria</p>
                                             </div>
-                                            <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <a href="blog_adicionar.php">
-                                                    <button style="float: right" type='button' class='btn btn-success'>
-                                                        Adicionar
-                                                    </button>
-                                                </a>
-                                                <a href="blog_categorias.php">
-                                                    <button style="float: right; margin-right:10px" type='button' class='btn btn-primary'>
-                                                        Categorias
-                                                    </button>
-                                                </a>
+                                            <div class="col-6"></div>
+                                            <div class="col-2">
+
                                             </div>
                                         </div>
                                     </div>
-                                    <?php include 'includes/blog-lista.php' ?>
-                                </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Categoria</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="categoria" type="text" placeholder="Categoria"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <button style="float: right" type='submit' class='btn btn-info'>Adicionar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
-                </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
             </div>
         </div>
-        <?php include 'includes/rodape.php' ?>
     </div>
+    <?php include 'includes/rodape.php' ?>
+</div>
 </div>
 <?php include 'includes/scriptsrodape.php' ?>
 </body>

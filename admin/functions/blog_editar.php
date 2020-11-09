@@ -2,11 +2,12 @@
 $id = intval($_REQUEST['id']);
 $titulo = $_REQUEST['titulo'];
 $resumo = $_REQUEST['resumo'];
+$categoria = $_REQUEST['categoria'];
 $texto = $_REQUEST['texto'];
 
 
 require("../connections/conn.php");
-$sql = "update blog_publicacoes set titulo='$titulo',resumo='$resumo',texto='$texto' where id=$id";
+$sql = "update blog_publicacoes set titulo='$titulo',resumo='$resumo',categoria='$categoria',texto='$texto' where id=$id";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));

@@ -57,6 +57,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                     $pegaid = (int)$_GET['id'];
                                     $sql = "select id,titulo,categoria,publicador,resumo,texto FROM blog_publicacoes where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
+
+                                    $sqlcategoriaselecionada = "select bp.id bpid, bp.titulo bptitulo, bp.categoria bpcategoria, bp.resumo bpresumo, bp.texto bptexto, bp.imagem bpimagem, bp.video bpvideo, bc.id bcid, bc.categoria bccategoria from blog_publicacoes as bp inner join blog_categorias as bc on bc.id = bp.categoria where bp.id = '$pegaid'";
+                                    $resultcategoriaselecionada = mysqli_query($conn,$sqlcategoriaselecionada);
+
+                                    $sqlcategorias = "select id, categoria from blog_categorias";
+                                    $resultcategorias = mysqli_query($conn, $sqlcategorias);
+
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
                                                    id='example-text-input'>";
@@ -69,19 +76,39 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<input type='hidden' value='$row[categoria]' name='categoria'>";
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Categoria</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<select name='categoria' class='form-control'>";
+
+                                        //Retorno da categoria selecionada
+                                        while ($retornocategoriaselecionada = mysqli_fetch_array($resultcategoriaselecionada)){
+                                            echo "<option style='background-color: #263238; color: #fff' selected value='$retornocategoriaselecionada[bcid]'>$retornocategoriaselecionada[bccategoria]</option>";
+                                        }
+                                        //Retorno da categoria selecionada
+
+
+                                        //Retorno todas categorias
+                                        while ($retornocategorias = mysqli_fetch_array($resultcategorias)){
+                                            echo "<option value='$retornocategorias[id]'>$retornocategorias[categoria]</option>";
+                                        }
+                                        //Retorno todas categorias
+
+                                        echo "</select>";
+                                        echo "</div>";
+                                        echo "</div>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Resumo</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<textarea class='form-control' name='resumo'>$row[resumo]</textarea>";
+                                        echo "<textarea class='form-control' id='resumo' name='resumo'>$row[resumo]</textarea>";
                                         echo "</div>";
                                         echo "</div>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Texto</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<textarea class='form-control' name='texto'>$row[texto]</textarea>";
+                                        echo "<textarea class='form-control' id='descricao' name='texto'>$row[texto]</textarea>";
                                         echo "</div>";
                                         echo "</div>";
 
