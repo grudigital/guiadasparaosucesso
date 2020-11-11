@@ -2002,6 +2002,7 @@ main.freeze {
 @media (max-width: 991px) {
   .container {
     max-width: 100%;
+	margin-bottom:20px;
   }
 }
 
@@ -6284,6 +6285,13 @@ a.social_bt.google:before {
     visibility: visible !important;
   }
 }
+
+@media (max-width: 768px) {
+  .botaologinmobile{
+   display:none !important;
+  }
+}
+
 footer {
   background-color: #663D7F;
   padding: 60px 0 35px 0;

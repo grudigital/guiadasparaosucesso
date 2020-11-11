@@ -333,6 +333,43 @@ echo "<a href='$row[link]'>";
         </div>
         <!-- /container -->
 
+		<div class="container margin_60_35">
+            <div class="main_title">
+                <h2>Blog</h2>
+                <span>Blog</span>
+                <p>Confira as publicações oficiais GPS</p>
+            </div>
+            <div class="owl-carousel owl-theme products_carousel">
+
+                <?php
+                require("admin/connections/conn.php");
+                $sql = "select * FROM blog_publicacoes order by id desc limit 8 ";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    echo "<div class='item'>";
+                    echo "<div class='grid_item'>";
+                    echo "<figure>";
+                    echo "<a href='blog_publicacao.php?id=$row[id]'>";
+                    echo "<img style='height:280px' class='owl-lazy' src='admin/uploads/blog/$row[imagem]'
+                                     data-src='admin/uploads/blog/$row[imagem]' alt=''>";
+                    echo "</a>";
+                    echo "</figure>";
+                    echo "<a href='blog_publicacao.php?id=$row[id]'>";
+                    echo "<span style='float:left' class='new_price'>$row[titulo]</span>";
+					                    
+
+                    echo "</a>";
+					echo "";
+echo "<p style='margin-top:40px !important'>$row[resumo]</p>";                    
+                    echo "</div>";
+                    echo "</div>";
+
+                }
+                ?>
+            </div>
+        </div>
+
 
         <div class="container margin_60_35">
             <div class="main_title">

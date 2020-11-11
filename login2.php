@@ -43,6 +43,10 @@ if ($_SESSION['usuarioNome'] == '')
                                     <input type="password" class="form-control" name="senha" id="password_in"
                                            placeholder="Senha*">
                                 </div>
+                                
+                                <div class="form-group">
+                                    <p style="float: right"><a href="esqueci-senha.php">Esqueci minha senha</a></p>
+                                </div>
 
                                 <div class="text-center"><input type="submit" value="Entrar" class="btn_1 full-width"></div>
                             </form>

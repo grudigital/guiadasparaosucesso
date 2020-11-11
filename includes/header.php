@@ -7,12 +7,12 @@ if ($_SESSION['usuarioNome'] == '')
     <div class="main_header">
         <div class="container">
             <div class="row small-gutters">
-                <div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
+                <div class="col-xl-2 col-lg-2 d-lg-flex align-items-center">
                     <div id="logo">
                         <a href="index.php"><img src="img/logo.png" alt="" width="83" height="43"></a>
                     </div>
                 </div>
-                <nav class="col-xl-9 col-lg-2 d-lg-flex align-items-center justify-content-end text-rightt">
+                <nav class="col-xl-10 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
                     <a class="open_close" href="javascript:void(0);">
                         <div class="hamburger hamburger--spin">
                             <div class="hamburger-box">
@@ -44,9 +44,14 @@ if ($_SESSION['usuarioNome'] == '')
                             <li>
                                 <a href="contato.php">Contato</a>
                             </li>
+							<li>
+                                <a href="areasocio.php">Área de sócios</a>
+                            </li>
                             <li style="background-color: #fff; border-radius: 5px">
                                 <a style="color:#653C7D; padding-top: 20px; padding-bottom: 20px" href="faca-parte.php">Faça parte</a>
                             </li>
+							
+							
                         </ul>
                     </div>
                 </nav>
@@ -84,7 +89,7 @@ if ($_SESSION['usuarioNome'] == '')
                                     <ul>
                                         <?php
                                         require("admin/connections/conn.php");
-                                        $sql = "select * FROM anunciantes_categoria";
+                                        $sql = "select * FROM anunciantes_categoria order by categoria asc";
                                         $result = mysqli_query($conn, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo "<li><span><a href='categoria.php?id=$row[id]'>$row[categoria]</a></span></li>";
@@ -96,11 +101,11 @@ if ($_SESSION['usuarioNome'] == '')
                         </ul>
                     </nav>
                 </div>
-                <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
+                <div class="col-xl-6 col-lg-7 col-md-6">
                     <div class="custom-search-input">
                         <form method="POST" action="pesquisar.php">
                             <input type="text" name="pesquisar"
-                                   placeholder="Busque por profissional ou categoria para seu evento">
+                                   placeholder="Busque por profissional ou categoria">
                             <button type="submit"><i class="header-icon_search_custom"></i></button>
                         </form>
                     </div>
@@ -109,21 +114,21 @@ if ($_SESSION['usuarioNome'] == '')
                 <?php
                 error_reporting(E_ERROR | E_WARNING | E_PARSE);
                 if ($_SESSION['usuarioId'] == '') {
-                    echo "<div class='col-xl-3 col-lg-2 col-md-3'>";
-                    echo "<ul class='top_tools'>";
+                    echo "<div class='col-xl-3 col-lg-2 col-md-3 botaologinmobile'>";
+                    echo "<ul class='top_tools '>";
                     echo "<li>";
-                    echo "<div class='dropdown dropdown-access'>";
+                    echo "<div class='dropdown dropdown-access '>";
                     echo "<a href='login.php' class='access_link'><span>Conta</span></a>";
                     echo "<div style='margin-left: -170px' class='dropdown-menu'>";
                     echo "<a href='login.php' class='btn_1'>Entrar ou cadastrar</a>";
-                    echo "</div>";
+					echo "</div>";
                     echo "</div>";
                     echo "</li>";
                     echo "</ul>";
                     echo "</div>";
                 } else {
                     session_start();
-                    echo "<div class='col-xl-3 col-lg-2 col-md-3'>";
+                    echo "<div class='col-xl-3 col-lg-2 col-md-3 botaologinmobile'>";
                     echo "<ul style='margin-left:-210px;' class='top_tools'>";
 
                     echo "<li>";

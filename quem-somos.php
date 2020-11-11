@@ -64,54 +64,17 @@ if ($_SESSION['usuarioNome'] == '')
                     }
                 ?>
 
+                
+
                 <?php
                 require("admin/connections/conn.php");
-                $sql = "select * FROM blocos where id = 4";
+                $sql = "select * FROM blocos where pagina = 1";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
 
-                echo "<div style='margin-top:25px; margin-bottom:25px' class='row justify-content-between align-items-center content_general_row'>";
+                    echo "<div style='margin-top:25px; margin-bottom:50px' class='row justify-content-between content_general_row'>";
                     echo "<div class='col-lg-5 text-left'>";
-                        echo "<figure><img src='admin/uploads/blocos/$row[imagem]' data-src='admin/uploads/blocos/$row[imagem]' alt='' class='img-fluid lazy' width='350' height='268'></figure>";
-                        echo "</div>";
-                    echo "<div class='col-lg-6'>";
-                        echo "<h2>$row[titulo]</h2>";
-                    echo "<p class='lead'>$row[resumo]</p>";
-                    echo "<p>$row[texto]</p>";
-                        echo "</div>";
-                    echo "</div>";
-
-                }
-                ?>
-
-                <?php
-                require("admin/connections/conn.php");
-                $sql = "select * FROM blocos where id = 5";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-
-                echo "<div style='margin-top:25px; margin-bottom:25px' class='row justify-content-between align-items-center flex-lg-row-reverse content_general_row'>";
-                    echo "<div class='col-lg-5 text-center'>";
-                        echo "<figure><img src='admin/uploads/blocos/$row[imagem]' data-src='admin/uploads/blocos/$row[imagem]' alt='' class='img-fluid lazy' width='350' height='316'></figure>";
-                        echo "</div>";
-                    echo "<div class='col-lg-6'>";
-                        echo "<h2>$row[titulo]</h2>";
-                        echo "<p class='lead'>$row[resumo]</p>";
-                        echo "<p>$row[texto]</p>";
-                    echo "</div>";
-
-                }
-                ?>
-
-                <?php
-                require("admin/connections/conn.php");
-                $sql = "select * FROM blocos where id = 6";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-
-                    echo "<div style='margin-top:25px; margin-bottom:25px' class='row justify-content-between align-items-center content_general_row'>";
-                    echo "<div class='col-lg-5 text-left'>";
-                    echo "<figure><img src='admin/uploads/blocos/$row[imagem]' data-src='admin/uploads/blocos/$row[imagem]' alt='' class='img-fluid lazy' width='350' height='268'></figure>";
+                    echo "<figure><img style='vertical-align:top' src='admin/uploads/blocos/$row[imagem]' data-src='admin/uploads/blocos/$row[imagem]' alt='' class='img-fluid lazy' width='100%'></figure>";
                     echo "</div>";
                     echo "<div class='col-lg-6'>";
                     echo "<h2>$row[titulo]</h2>";
